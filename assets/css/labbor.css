@@ -1,0 +1,121 @@
+/* Menu */
+.logoMenu {
+  max-width: 150px;
+}
+/* Menu */
+
+/* General */
+.btn-primary {
+  color: #fff;
+  background-color: #3cc6e5;
+  border-color: #3cc6e5;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #171d3e;
+  border-color: #171d3e; /*set the color you want here*/
+}
+
+.btn-warning {
+  color: #fff;
+  background-color: rgb(255, 64, 64);
+  border-color: rgb(255, 64, 64);
+}
+
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active,
+.btn-warning.active,
+.open > .dropdown-toggle.btn-warning {
+  color: #fff;
+  background-color: #171d3e;
+  border-color: #171d3e; /*set the color you want here*/
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: #3cc6e5;
+  background-color: transparent;
+  border-color: transparent transparent #3cc6e5;
+}
+
+.text-primary {
+  color: #3cc6e5 !important;
+}
+
+.bg-soft-primary {
+  background-color: #dfe8ea !important;
+}
+
+@media (min-width: 992px) {
+  .navbar-vertical.navbar-expand-lg .navbar-brand {
+    margin: auto !important;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Paquetes */
+  .paquete {
+    height: 190px;
+  }
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v20/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-NYiFWkUzdYPFkZVOA6w.woff)
+    format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
+    U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v20/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-NYiFU0UzdYPFkZVOA6w.woff)
+    format('woff');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* hebrew */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v20/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-NYiFVUUzdYPFkZVOA6w.woff)
+    format('woff');
+  unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v20/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-NYiFWUUzdYPFkZVOA6w.woff)
+    format('woff');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v20/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-NYiFV0UzdYPFkZVO.woff)
+    format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
