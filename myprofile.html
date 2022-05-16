@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Labbor.app</title>
+    <link href="./assets/css/webpixels.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/img//favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/img//favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/img//site.webmanifest" />
+    <link rel="stylesheet" href="./assets/css/labbor.css" />
+  </head>
+  <body>
+    <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+      <!-- Vertical Navbar -->
+      <nav
+        class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 py-lg-0 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
+        id="navbarVertical"
+      >
+        <div class="container-fluid">
+          <!-- Toggler -->
+          <button
+            class="navbar-toggler ms-n2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#sidebarCollapse"
+            aria-controls="sidebarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Brand -->
+          <a class="navbar-brand py-lg-5 mb-lg-5 px-lg-6 me-0" href="#">
+            <img src="./labborAssets/Labbor.svg" class="logoMenu" />
+          </a>
+          <!-- User menu (mobile) -->
+          <div class="navbar-user d-lg-none"></div>
+          <!-- Collapse -->
+
+          <div class="collapse navbar-collapse" id="sidebarCollapse">
+            <!-- Navigation -->
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-house"></i> Inicio
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-person"></i> Mi perfil de asociado
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-people"></i> Colaboradores
+                </a>
+              </li>
+            </ul>
+            <ul class="navbar-nav mb-md-4">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-bell"></i> Notificaciones
+                  <span
+                    class="badge bg-soft-danger text-danger rounded-pill d-inline-flex align-items-center ms-auto"
+                    >23</span
+                  >
+                </a>
+              </li>
+            </ul>
+            <!-- Push content down -->
+            <div class="mt-auto"></div>
+            <!-- User (md) -->
+            <ul class="navbar-nav mb-5">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-person-square"></i> Mi cuenta
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-life-preserver"></i> Ayuda
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-box-arrow-left"></i> Salir
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Main content -->
+      <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+        <!-- Main -->
+        <main class="py-6 bg-surface-secondary">
+          <div class="container-fluid">
+            <div class="mb-npx">
+              <div class="row align-items-center">
+                <div class="col-xl-7 mx-auto">
+                  <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+                    <!-- Title -->
+                    <h1 class="h2 mb-0 ls-tight">Mi perfil de asociado</h1>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-center">
+                        <a href="#" class="avatar avatar-xl rounded-circle">
+                          <img alt="..." src="./assets/img/gabriel.png" />
+                        </a>
+                      </div>
+                      <div class="text-center my-6">
+                        <!-- Title -->
+                        <a href="#" class="d-block h5 mb-0">Gabriel Zamora</a>
+                        <!-- Subtitle -->
+                        <span class="d-block text-sm text-muted"
+                          >gzamora@mentorcr.com</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-7 mx-auto">
+              <ul
+                class="nav nav-tabs justify-content-center"
+                id="myTab"
+                role="tablist"
+              >
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="home-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#home-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="home-tab-pane"
+                    aria-selected="true"
+                  >
+                    Datos generales
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="profile-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#profile-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="profile-tab-pane"
+                    aria-selected="false"
+                  >
+                    Archivos
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="contact-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#contact-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="contact-tab-pane"
+                    aria-selected="false"
+                  >
+                    Plan
+                  </button>
+                </li>
+              </ul>
+              <div class="tab-content mt-6" id="myTabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="home-tab-pane"
+                  role="tabpanel"
+                  aria-labelledby="home-tab"
+                  tabindex="0"
+                >
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="mb-0">Datos generales</h5>
+                    </div>
+                    <div class="card-body">
+                      <form class="mb-6">
+                        <div class="row mb-5">
+                          <div class="col-md-6">
+                            <div class="">
+                              <label class="form-label" for="first_name"
+                                >Nombre</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="first_name"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="">
+                              <label class="form-label" for="last_name"
+                                >Apellidos</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="last_name"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row g-5">
+                          <div class="col-md-6">
+                            <div class="">
+                              <label class="form-label" for="email"
+                                >Correo electrónico</label
+                              >
+                              <input
+                                type="email"
+                                class="form-control"
+                                id="email"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="">
+                              <label class="form-label" for="phone_number"
+                                >Teléfono Móvil</label
+                              >
+                              <input
+                                type="tel"
+                                class="form-control"
+                                id="phone_number"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="">
+                              <label class="form-label" for="address"
+                                >Dirección</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="address"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="">
+                              <label class="form-label" for="city"
+                                >Actividad Economica</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="city"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="">
+                              <label class="form-label" for="city"
+                                >Ingreso aproximado</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="city"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Divider -->
+                        <hr class="navbar-divider my-5 opacity-20" />
+                        <div class="text-end">
+                          <button
+                            type="button"
+                            class="btn btn-sm btn-neutral me-2"
+                          >
+                            Cancelar
+                          </button>
+                          <button type="submit" class="btn btn-sm btn-primary">
+                            Guardar
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="profile-tab-pane"
+                  role="tabpanel"
+                  aria-labelledby="profile-tab"
+                  tabindex="0"
+                >
+                  <div class="card">
+                    <div class="list-group list-group-flush">
+                      <div class="list-group-item d-flex align-items-center">
+                        <div class="me-4">
+                          <div
+                            class="icon icon-lg icon-shape text-xl bg-soft-warning text-warning"
+                          >
+                            <i class="bi bi-image"></i>
+                          </div>
+                        </div>
+                        <div class="flex-fill">
+                          <!-- Title -->
+                          <span class="d-block h6 text-sm font-semibold mb-1"
+                            >Cédula</span
+                          >
+                          <!-- Subtitle -->
+                          <span class="d-block text-xs font-semibold"
+                            >Vista frontal</span
+                          >
+                          <!-- Meta -->
+                          <span class="d-block text-xs text-muted">
+                            Actualizada el
+                            <time datetime="2021-01-04">Apr 4, 2021</time>
+                          </span>
+                        </div>
+                        <div class="ms-auto">
+                          <a
+                            href="#"
+                            class="btn btn-sm btn-neutral px-3 py-2 d-none d-md-inline-block"
+                            >Descargar</a
+                          >
+                        </div>
+                        <div class="ms-4 text-end">
+                          <div class="dropdown">
+                            <a
+                              class="text-muted"
+                              href="#"
+                              role="button"
+                              data-bs-toggle="dropdown"
+                              id="dropdownMore1"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="bi bi-three-dots-vertical"></i>
+                            </a>
+                            <div
+                              class="dropdown-menu"
+                              aria-labelledby="dropdownMenuButton"
+                            >
+                              <a href="#!" class="dropdown-item">
+                                Actualizar
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="list-group-item d-flex align-items-center">
+                        <div class="me-4">
+                          <div
+                            class="icon icon-lg icon-shape text-xl bg-soft-warning text-warning"
+                          >
+                            <i class="bi bi-image"></i>
+                          </div>
+                        </div>
+                        <div class="flex-fill">
+                          <!-- Title -->
+                          <span class="d-block h6 text-sm font-semibold mb-1"
+                            >Cédula</span
+                          >
+                          <!-- Subtitle -->
+                          <span class="d-block text-xs font-semibold"
+                            >Vista posterior</span
+                          >
+                          <!-- Meta -->
+                          <span class="d-block text-xs text-muted">
+                            Actualizada el
+                            <time datetime="2021-01-04">Apr 4, 2021</time>
+                          </span>
+                        </div>
+                        <div class="ms-auto">
+                          <a
+                            href="#"
+                            class="btn btn-sm btn-neutral px-3 py-2 d-none d-md-inline-block"
+                            >Descargar</a
+                          >
+                        </div>
+                        <div class="ms-4 text-end">
+                          <div class="dropdown">
+                            <a
+                              class="text-muted"
+                              href="#"
+                              role="button"
+                              data-bs-toggle="dropdown"
+                              id="dropdownMore1"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="bi bi-three-dots-vertical"></i>
+                            </a>
+                            <div
+                              class="dropdown-menu"
+                              aria-labelledby="dropdownMenuButton"
+                            >
+                              <a href="#!" class="dropdown-item">
+                                Actualizar
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="list-group-item d-flex align-items-center">
+                        <div class="me-4">
+                          <div
+                            class="icon icon-lg icon-shape text-xl bg-soft-primary text-primary"
+                          >
+                            <i class="bi bi-file-text"></i>
+                          </div>
+                        </div>
+                        <div class="flex-fill">
+                          <!-- Title -->
+                          <span class="d-block h6 text-sm font-semibold mb-1"
+                            >Otro documento</span
+                          >
+                          <!-- Subtitle -->
+                          <span class="d-block text-xs font-semibold"
+                            >Descripción del documento</span
+                          >
+                          <!-- Meta -->
+                          <span class="d-block text-xs text-muted">
+                            Actualizado el
+                            <time datetime="2021-01-04">Apr 4, 2021</time>
+                          </span>
+                        </div>
+                        <div class="ms-auto">
+                          <a
+                            href="#"
+                            class="btn btn-sm btn-neutral px-3 py-2 d-none d-md-inline-block"
+                            >Download</a
+                          >
+                        </div>
+                        <div class="ms-4 text-end">
+                          <div class="dropdown">
+                            <a
+                              class="text-muted"
+                              href="#"
+                              role="button"
+                              data-bs-toggle="dropdown"
+                              id="dropdownMore2"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="bi bi-three-dots-vertical"></i>
+                            </a>
+                            <div
+                              class="dropdown-menu"
+                              aria-labelledby="dropdownMenuButton"
+                            >
+                              <a href="#!" class="dropdown-item">
+                                Actualizar
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="contact-tab-pane"
+                  role="tabpanel"
+                  aria-labelledby="contact-tab"
+                  tabindex="0"
+                >
+                  <div class="card card-pricing px-8 py-7 border-0">
+                    <div>
+                      <!-- Plan name -->
+                      <h4 class="mb-3 text-muted font-semibold">Básico</h4>
+                      <!-- Price -->
+                      <div class="display-5 d-flex mt-5 text-heading">
+                        <div>¢<span class="">29</span></div>
+                        <div
+                          class="text-muted text-base font-semibold align-self-end ms-1"
+                        >
+                          <span class="d-block mt-n8"> / mes</span>
+                        </div>
+                      </div>
+                      <!-- Text -->
+                      <p class="text-muted text-sm mt-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      </p>
+                      <hr class="opacity-0 my-2" />
+                      <!-- List -->
+                      <ul class="list-unstyled mb-5">
+                        <li class="py-2 d-flex align-items-center">
+                          <!-- Icon -->
+                          <div
+                            class="icon icon-xs text-base icon-shape rounded-circle bg-soft-primary text-primary me-3"
+                          >
+                            <i class="bi bi-check"></i>
+                          </div>
+                          <!-- Text -->
+                          <p>Soporte contable</p>
+                        </li>
+                        <li class="py-2 d-flex align-items-center">
+                          <!-- Icon -->
+                          <div
+                            class="icon icon-xs text-base icon-shape rounded-circle bg-soft-primary text-primary me-3"
+                          >
+                            <i class="bi bi-check"></i>
+                          </div>
+                          <!-- Text -->
+                          <p>Póliza RT INS</p>
+                        </li>
+                      </ul>
+                      <!-- Button -->
+                      <a href="#" class="btn w-full btn-warning"
+                        >Solicitar cambio</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="./assets/js/demo.js"></script>
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+  </body>
+</html>

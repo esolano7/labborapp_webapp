@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Labbor.app</title>
+    <link href="./assets/css/webpixels.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/img//favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/img//favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/img//site.webmanifest" />
+    <link rel="stylesheet" href="./assets/css/labbor.css" />
+  </head>
+  <body>
+    <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+      <!-- Vertical Navbar -->
+      <nav
+        class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 py-lg-0 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
+        id="navbarVertical"
+      >
+        <div class="container-fluid">
+          <!-- Toggler -->
+          <button
+            class="navbar-toggler ms-n2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#sidebarCollapse"
+            aria-controls="sidebarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Brand -->
+          <a class="navbar-brand py-lg-5 mb-lg-5 px-lg-6 me-0" href="#">
+            <img src="./labborAssets/Labbor.svg" class="logoMenu" />
+          </a>
+          <!-- User menu (mobile) -->
+          <div class="navbar-user d-lg-none"></div>
+          <!-- Collapse -->
+
+          <div class="collapse navbar-collapse" id="sidebarCollapse">
+            <!-- Navigation -->
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-house"></i> Inicio
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-person"></i> Mi perfil de asociado
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-people"></i> Colaboradores
+                </a>
+              </li>
+            </ul>
+            <ul class="navbar-nav mb-md-4">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-bell"></i> Notificaciones
+                  <span
+                    class="badge bg-soft-danger text-danger rounded-pill d-inline-flex align-items-center ms-auto"
+                    >23</span
+                  >
+                </a>
+              </li>
+            </ul>
+            <!-- Push content down -->
+            <div class="mt-auto"></div>
+            <!-- User (md) -->
+            <ul class="navbar-nav mb-5">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-person-square"></i> Mi cuenta
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-life-preserver"></i> Ayuda
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-box-arrow-left"></i> Salir
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Main content -->
+      <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+        <!-- Main -->
+        <main class="py-6 bg-surface-secondary">
+          <div class="py-16">
+            <div class="container max-w-screen-xl">
+              <div class="row justify-content-center align-items-center">
+                <div class="col-lg-8 text-center">
+                  <!-- Heading -->
+                  <h1 class="ls-tight font-bolder display-6 text-primary mb-5">
+                    ¿Querés afiliarte como trabajador?
+                  </h1>
+                  <!-- Text -->
+                  <p class="lead text-muted mb-10">
+                    Plan, build and launch beautiful and consistent user
+                    interfaces for the web that drives meaningful engagement and
+                    growth for your brand.
+                  </p>
+                  <!-- Buttons -->
+                  <div class="mx-n2">
+                    <a href="#" class="btn btn-primary mx-2"> Get started </a>
+                    <a href="#" class="btn btn-secondary mx-2"> Learn more </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="./assets/js/demo.js"></script>
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Labbor.app</title>
+    <link href="./assets/css/webpixels.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/img//favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/img//favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/img//site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/labbor.css" />
+    <link rel="stylesheet" href="./assets/css/intlTelInput.min.css" />
+    <style>
+      .iti__flag {
+        background-image: url('./assets/img/flags.png');
+      }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .iti__flag {
+          background-image: url('./assets/img/flags@2x.png');
+        }
+      }
+      .iti {
+        position: relative;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="group-forms group-auth-forms component-form-login-2"
+      id="component-shot"
+    >
+      <img src="./labborAssets/Labbor.svg" class="mx-auto d-block" alt="..." />
+      <div class="mb-5"></div>
+
+      <div class="collapse" id="bienvenida">
+        <div class="mb-5 form-text" style="text-align: justify">
+          <h1 class="ls-tight font-bolder display-5 mb-5 text-center">
+            ¿Querés afiliarte o afiliar a un colaborador?
+          </h1>
+          <p class="mb-6">
+            ¡Claro! Estás a solo unos pasos. Vamos a necesitar alguna
+            información.
+          </p>
+          <p>Primero tenemos que abrir tu cuenta.</p>
+          <img
+            src="./assets/img/signup.svg"
+            class="mx-auto d-block mb-10 mt-10"
+            style="max-width: 300px"
+          />
+          <div>
+            <a href="#" class="btn btn-primary w-full"> Siguiente </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapse" id="bienvenida">
+        <div class="mb-5 form-text" style="text-align: justify">
+          <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+            Paso 1: Abramos tu cuenta
+          </h1>
+          <p class="mb-6 text-center">Con estos datos ingresarás a tu App</p>
+          <div class="mb-5">
+            <label class="form-label" for="phone">Teléfono</label>
+            <input type="tel" id="phone" class="form-control form-control" />
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label" for="password">Contraseña</label>
+            <input
+              type="password"
+              class="form-control form-control"
+              id="password"
+              autocomplete="current-password"
+            />
+          </div>
+          <div class="mb-5">
+            <label class="form-label" for="password"
+              >Confirmación de contraseña</label
+            >
+            <input
+              type="password"
+              class="form-control form-control"
+              id="password"
+              autocomplete="current-password"
+            />
+          </div>
+          <div>
+            <a href="#" class="btn btn-primary w-full"> Siguiente </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapse" id="bienvenida">
+        <div class="mb-5 form-text" style="text-align: justify">
+          <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+            Paso 2: ¿Vos o tus colaboradores?
+          </h1>
+          <p class="mb-6 text-center">
+            ¿Querés afiliarte vos como beneficiario o a uno de tus
+            colaboradores?
+          </p>
+          <img
+            src="./assets/img/question.svg"
+            class="mx-auto d-block mb-10 mt-10"
+            style="max-height: 200px"
+          />
+          <div>
+            <a href="#" class="btn btn-primary w-full mb-5">
+              Quiero afiliarme yo
+            </a>
+          </div>
+          <div>
+            <a href="#" class="btn btn-danger w-full">
+              Afiliar a un colaborador
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapse" id="bienvenida">
+        <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+          Paso 3: Necesitamos tus datos
+        </h1>
+        <p class="text-center mb-10">Completá el siguiente formulario:</p>
+        <form>
+          <div class="mb-5">
+            <label class="form-label" for="email">Nombre</label>
+            <input type="text" class="form-control form-control" />
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label" for="email">Apellidos</label>
+            <input type="text" class="form-control form-control" />
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label" for="email">Cédula</label>
+            <input type="text" class="form-control form-control" />
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label" for="phone">Teléfono</label>
+            <input type="tel" id="phone" class="form-control form-control" />
+          </div>
+
+          <div class="mb-5">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Correo Electrónico</label
+            >
+            <input type="email" class="form-control" />
+          </div>
+
+          <div>
+            <a href="#" class="btn btn-primary w-full"> Siguiente </a>
+          </div>
+        </form>
+      </div>
+
+      <div class="collapse.show" id="bienvenida">
+        <div class="mb-5 form-text" style="text-align: justify">
+          <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+            Paso 4: ¿Alistá tu cámara?
+          </h1>
+          <p class="mb-6 text-center">Necesitamos algunas fotos</p>
+          <img
+            src="./assets/img/takepics.svg"
+            class="mx-auto d-block mb-10 mt-10"
+            style="max-width: 300px"
+          />
+          <div>
+            <a href="#" class="btn btn-primary w-full mt-10 mb-5">
+              Siguiente
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/intlTelInput.js"></script>
+    <script>
+      var input = document.querySelector('#phone')
+      window.intlTelInput(input, {
+        onlyCountries: ['cr'],
+        autoPlaceholder: 'aggressive',
+      })
+    </script>
+  </body>
+</html>
