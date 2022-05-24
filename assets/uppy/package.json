@@ -1,0 +1,22 @@
+{
+  "name": "uppy-wrapper",
+  "description": "Wrapper for using Uppy inside WootIT",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "author": "Tey García <tgarcia@codigoe.com>",
+  "scripts": {
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "@uppy/aws-s3": "^2.1.0",
+    "@uppy/core": "^2.2.0",
+    "@uppy/dashboard": "^2.2.0",
+    "@uppy/locales": "^2.1.0",
+    "@uppy/webcam": "^2.2.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
+  }
+}

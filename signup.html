@@ -32,6 +32,13 @@
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://releases.transloadit.com/uppy/v2.10.0/uppy.min.css"
+      rel="stylesheet"
+    />
+
+    <link href="./assets/uppy/dist/webcamstyle.min.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="./assets/css/labbor.css" />
     <link rel="stylesheet" href="./assets/css/intlTelInput.min.css" />
     <style>
@@ -50,164 +57,277 @@
     </style>
   </head>
   <body>
-    <div
-      class="group-forms group-auth-forms component-form-login-2"
-      id="component-shot"
-    >
-      <img src="./labborAssets/Labbor.svg" class="mx-auto d-block" alt="..." />
-      <div class="mb-5"></div>
+    <form>
+      <div
+        class="group-forms group-auth-forms component-form-login-2"
+        id="component-shot"
+      >
+        <img
+          src="./labborAssets/Labbor.svg"
+          class="mx-auto d-block"
+          alt="..."
+        />
+        <div class="mb-5"></div>
 
-      <div class="collapse" id="bienvenida">
-        <div class="mb-5 form-text" style="text-align: justify">
-          <h1 class="ls-tight font-bolder display-5 mb-5 text-center">
-            ¿Querés afiliarte o afiliar a un colaborador?
-          </h1>
-          <p class="mb-6">
-            ¡Claro! Estás a solo unos pasos. Vamos a necesitar alguna
-            información.
-          </p>
-          <p>Primero tenemos que abrir tu cuenta.</p>
-          <img
-            src="./assets/img/signup.svg"
-            class="mx-auto d-block mb-10 mt-10"
-            style="max-width: 300px"
-          />
-          <div>
-            <a href="#" class="btn btn-primary w-full"> Siguiente </a>
+        <div class="collapse" id="formCollapse1">
+          <div class="mb-5 form-text" style="text-align: justify">
+            <h1 class="ls-tight font-bolder display-5 mb-5 text-center">
+              ¿Querés afiliarte o afiliar a un colaborador?
+            </h1>
+            <p class="mb-6">
+              ¡Claro! Estás a solo unos pasos. Vamos a necesitar alguna
+              información.
+            </p>
+            <p>Primero tenemos que abrir tu cuenta.</p>
+            <img
+              src="./assets/img/signup.svg"
+              class="mx-auto d-block mb-10 mt-10"
+              style="max-width: 300px"
+            />
+            <div>
+              <a href="#" class="btn btn-primary w-full" onClick="next(2)">
+                Siguiente
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="collapse" id="bienvenida">
-        <div class="mb-5 form-text" style="text-align: justify">
+        <div class="collapse" id="formCollapse2">
+          <div class="mb-5 form-text" style="text-align: justify">
+            <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+              Paso 1: Abramos tu cuenta
+            </h1>
+            <p class="mb-6 text-center">Con estos datos ingresarás a tu App</p>
+            <div class="mb-5">
+              <label class="form-label" for="usernom">Tu nombre</label>
+              <input
+                type="text"
+                id="usernom"
+                class="form-control form-control"
+                placeholder="Tu nombre"
+              />
+            </div>
+
+            <div class="mb-5">
+              <label class="form-label" for="userap">Tus pellidos</label>
+              <input
+                type="text"
+                id="userap"
+                class="form-control form-control"
+                placeholder="Tus apellidos"
+              />
+            </div>
+            <div class="mb-5">
+              <label class="form-label" for="phone">Teléfono</label>
+              <input
+                type="tel"
+                id="phone"
+                class="form-control form-control"
+                placeholder="Tu número de celular"
+              />
+            </div>
+
+            <div class="mb-5">
+              <label class="form-label" for="password">Contraseña</label>
+              <input
+                type="password"
+                class="form-control form-control"
+                id="password1"
+                autocomplete="current-password"
+                placeholder="Tu contraseña"
+              />
+            </div>
+            <div class="mb-5">
+              <label class="form-label" for="password"
+                >Confirmación de contraseña</label
+              >
+              <input
+                type="password"
+                class="form-control form-control"
+                id="password2"
+                autocomplete="current-password"
+                placeholder="Confirma tu contraseña"
+              />
+            </div>
+            <div>
+              <a href="#" class="btn btn-primary w-full mb-5" onClick="next(3)">
+                Siguiente
+              </a>
+            </div>
+            <div>
+              <a href="#" class="btn btn-secondary w-full" onClick="prev(2)">
+                Atrás
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapse" id="formCollapse3">
+          <div class="mb-5 form-text" style="text-align: justify">
+            <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+              Paso 2: ¿Vos o tus colaboradores?
+            </h1>
+            <p class="mb-6 text-center">
+              ¿Querés afiliarte vos como beneficiario o a uno de tus
+              colaboradores?
+            </p>
+            <img
+              src="./assets/img/question.svg"
+              class="mx-auto d-block mb-10 mt-10"
+              style="max-height: 200px"
+            />
+            <div>
+              <a
+                href="#"
+                class="btn btn-primary w-full mb-5"
+                onClick="next(4,'personal')"
+              >
+                Quiero afiliarme yo
+              </a>
+            </div>
+            <div>
+              <a
+                href="#"
+                class="btn btn-danger w-full mb-5"
+                onClick="next(4,'colaborador')"
+              >
+                Afiliar a un colaborador
+              </a>
+            </div>
+            <div>
+              <a href="#" class="btn btn-secondary w-full" onClick="prev(3)">
+                Atrás
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapse" id="formCollapse4">
           <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
-            Paso 1: Abramos tu cuenta
+            Paso 3: Necesitamos tus datos
           </h1>
-          <p class="mb-6 text-center">Con estos datos ingresarás a tu App</p>
+          <p class="text-center mb-10">Completá el siguiente formulario:</p>
+
+          <input type="hidden" id="who" class="form-control form-control" />
           <div class="mb-5">
-            <label class="form-label" for="phone">Teléfono</label>
-            <input type="tel" id="phone" class="form-control form-control" />
+            <label class="form-label" for="nom">Nombre</label>
+            <input type="text" id="nom" class="form-control form-control" />
           </div>
 
           <div class="mb-5">
-            <label class="form-label" for="password">Contraseña</label>
+            <label class="form-label" for="ap">Apellidos</label>
+            <input type="text" id="ap" class="form-control form-control" />
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label" for="tipoid">Identificación</label>
+            <select class="form-control" id="tipoid">
+              <option value="01">Cédula Física</option>
+            </select>
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label" for="cedula">Identificación</label>
             <input
-              type="password"
+              type="text"
+              id="cedula"
               class="form-control form-control"
-              id="password"
-              autocomplete="current-password"
+              placeholder="Digita el número de identificación"
             />
           </div>
-          <div class="mb-5">
-            <label class="form-label" for="password"
-              >Confirmación de contraseña</label
-            >
-            <input
-              type="password"
-              class="form-control form-control"
-              id="password"
-              autocomplete="current-password"
-            />
-          </div>
-          <div>
-            <a href="#" class="btn btn-primary w-full"> Siguiente </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="collapse" id="bienvenida">
-        <div class="mb-5 form-text" style="text-align: justify">
-          <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
-            Paso 2: ¿Vos o tus colaboradores?
-          </h1>
-          <p class="mb-6 text-center">
-            ¿Querés afiliarte vos como beneficiario o a uno de tus
-            colaboradores?
-          </p>
-          <img
-            src="./assets/img/question.svg"
-            class="mx-auto d-block mb-10 mt-10"
-            style="max-height: 200px"
-          />
-          <div>
-            <a href="#" class="btn btn-primary w-full mb-5">
-              Quiero afiliarme yo
-            </a>
-          </div>
-          <div>
-            <a href="#" class="btn btn-danger w-full">
-              Afiliar a un colaborador
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="collapse" id="bienvenida">
-        <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
-          Paso 3: Necesitamos tus datos
-        </h1>
-        <p class="text-center mb-10">Completá el siguiente formulario:</p>
-        <form>
-          <div class="mb-5">
-            <label class="form-label" for="email">Nombre</label>
-            <input type="text" class="form-control form-control" />
-          </div>
 
           <div class="mb-5">
-            <label class="form-label" for="email">Apellidos</label>
-            <input type="text" class="form-control form-control" />
-          </div>
-
-          <div class="mb-5">
-            <label class="form-label" for="email">Cédula</label>
-            <input type="text" class="form-control form-control" />
-          </div>
-
-          <div class="mb-5">
-            <label class="form-label" for="phone">Teléfono</label>
-            <input type="tel" id="phone" class="form-control form-control" />
+            <label class="form-label" for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" class="form-control form-control" />
           </div>
 
           <div class="mb-5">
             <label for="exampleFormControlInput1" class="form-label"
               >Correo Electrónico</label
             >
-            <input type="email" class="form-control" />
+            <input type="email" id="email" class="form-control" />
           </div>
 
           <div>
-            <a href="#" class="btn btn-primary w-full"> Siguiente </a>
-          </div>
-        </form>
-      </div>
-
-      <div class="collapse.show" id="bienvenida">
-        <div class="mb-5 form-text" style="text-align: justify">
-          <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
-            Paso 4: ¿Alistá tu cámara?
-          </h1>
-          <p class="mb-6 text-center">Necesitamos algunas fotos</p>
-          <img
-            src="./assets/img/takepics.svg"
-            class="mx-auto d-block mb-10 mt-10"
-            style="max-width: 300px"
-          />
-          <div>
-            <a href="#" class="btn btn-primary w-full mt-10 mb-5">
+            <a href="#" class="btn btn-primary w-full mb-5" onClick="next(5)">
               Siguiente
             </a>
           </div>
+          <div>
+            <a href="#" class="btn btn-secondary w-full" onClick="prev(4)">
+              Atrás
+            </a>
+          </div>
+        </div>
+
+        <div class="collapse" id="formCollapse5">
+          <div class="mb-5 form-text" style="text-align: justify">
+            <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+              Paso 4: ¿Alistá tu cámara?
+            </h1>
+            <p class="mb-6 text-center">Necesitamos algunas fotos</p>
+            <img
+              src="./assets/img/takepics.svg"
+              class="mx-auto d-block mb-10 mt-10"
+              style="max-width: 300px"
+            />
+            <div>
+              <a
+                href="#"
+                class="btn btn-primary w-full mt-10 mb-5"
+                onClick="next(6)"
+              >
+                Siguiente
+              </a>
+            </div>
+            <div>
+              <a href="#" class="btn btn-secondary w-full" onClick="prev(5)">
+                Atrás
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="collapse show" id="formCollapse6">
+          <div class="mb-5 form-text" style="text-align: justify">
+            <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+              Paso 5: Cédula
+            </h1>
+            <p class="mb-6 text-center">
+              Tomále una foto por ambos lados a la cédula
+            </p>
+            <div id="uppy-container"></div>
+            <div>
+              <button type="button" 
+                class="btn btn-primary w-full mt-10 mb-5"
+                onClick="next(7)"
+                id="siguienteFiles"
+              >
+                Siguiente
+              </a>
+            </div>
+            <div>
+              <button type="button" 
+                class="btn btn-secondary w-full"
+                onClick="prev(6)"
+                id="atrasFiles"
+              >
+                Atrás
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <script src="./assets/js/jquery-3.6.0.min.js"></script>
-    <script src="./assets/js/intlTelInput.js"></script>
-    <script>
-      var input = document.querySelector('#phone')
-      window.intlTelInput(input, {
-        onlyCountries: ['cr'],
-        autoPlaceholder: 'aggressive',
-      })
-    </script>
+      <script src="./assets/js/jquery-3.6.0.min.js"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"
+      ></script>
+      <script src="./assets/uppy/dist/main.js"></script>
+      <script src="./assets/js/intlTelInput.js"></script>
+      <script src="./assets/js/validaciones.js"></script>
+      <script src="./assets/js/signup.js"></script>
+    </form>
   </body>
 </html>
