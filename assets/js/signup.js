@@ -33,8 +33,8 @@ $(document).ready(function () {
 
 async function next(nextTab, who) {
   let pruebaValidacion = await validacion(nextTab)
-  console.log(pruebaValidacion)
   if (!pruebaValidacion) return
+  Swal.close()
   let currentTab = nextTab - 1
   $(`#formCollapse${currentTab}`).collapse('hide')
   $(`#formCollapse${nextTab}`).collapse('show')
@@ -72,7 +72,7 @@ function prev(currentTab) {
 }
 
 async function validacion(pagina) {
-  if (pagina === 2 || pagina === 4) return 1
+  if (pagina === 2 || pagina === 4 || pagina === 6 || pagina === 8) return 1
   if (pagina === 3) {
     if ($('#usernom').val().length === 0) {
       swalErrors('Por favor, digitá tu nombre')
