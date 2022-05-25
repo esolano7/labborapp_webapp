@@ -11,7 +11,7 @@ class uppyWrapper {
   }
 
   init({ target }) {
-    const serverUrl = `http://localhost:3000/companion/`
+    const serverUrl = `https://api.labbor.app/companion/`
     const uppyConfig = { inline: true, target }
     const idiomaConCambios = ES
 

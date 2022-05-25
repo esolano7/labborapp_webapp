@@ -69,7 +69,7 @@
         />
         <div class="mb-5"></div>
 
-        <div class="collapse" id="formCollapse1">
+        <div class="collapse show" id="formCollapse1">
           <div class="mb-5 form-text" style="text-align: justify">
             <h1 class="ls-tight font-bolder display-5 mb-5 text-center">
               ¿Querés afiliarte o afiliar a un colaborador?
@@ -248,6 +248,25 @@
             <input type="email" id="email" class="form-control" />
           </div>
 
+          <div class="mb-5">
+            <label for="actividadEconomica" class="form-label"
+              >Actividad Económica</label
+            >
+            <input type="text" id="actividadEconomica" class="form-control" placeholder="Digitá la actividad económica"/>
+          </div>
+
+          <div class="mb-5">
+            <label for="ingresobruto" class="form-label"
+              >Ingreso mensual percibido</label
+            >
+
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">¢</span>
+              <input type="text" id="ingresobruto" class="form-control" placeholder="Digitá el ingreso mensual percibido"/>
+            </div>
+            
+          </div>
+
           <div>
             <a href="#" class="btn btn-primary w-full mb-5" onClick="next(5)">
               Siguiente
@@ -287,8 +306,9 @@
             </div>
           </div>
         </div>
-        <div class="collapse show" id="formCollapse6">
+        <div class="collapse" id="formCollapse6">
           <div class="mb-5 form-text" style="text-align: justify">
+            <input type="hidden" name="files" id="files">
             <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
               Paso 5: Cédula
             </h1>
@@ -316,6 +336,50 @@
             </div>
           </div>
         </div>
+
+        <div class="collapse" id="formCollapse7">
+          <input type="hidden" name="paquete" id="paquete">
+          <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+            Paso 6: Paquete de servicios
+          </h1>
+          <p class="text-center mb-10">Seleccioná el paquete de servicios:</p>
+
+          <div class="mb-5 form-text" style="text-align: justify">
+            <div id="paquetes"></div>
+          </div>
+          <div>
+            <a href="#" class="btn btn-secondary w-full" onClick="prev(7)">
+              Atrás
+            </a>
+          </div>
+        </div>
+
+        <div class="collapse" id="formCollapse8">
+          <input type="hidden" name="paquete" id="paquete">
+          <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+            Paso 7: ¿Todo listo?
+          </h1>
+          <p class="text-center mb-10">Revisa los datos y si todo está bien, presiona finalizar</p>
+
+          <div class="mb-5 form-text" style="text-align: justify">
+           
+          </div>
+          <div>
+            <button type="button" 
+              class="btn btn-success w-full mt-10 mb-5"
+              onClick="finalizar()"
+              id="siguienteFiles"
+            >
+              Finalizar
+            </a>
+          </div>
+          <div>
+            <a href="#" class="btn btn-secondary w-full" onClick="prev(8)">
+              Atrás
+            </a>
+          </div>
+        </div>
+
       </div>
       <script src="./assets/js/jquery-3.6.0.min.js"></script>
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
