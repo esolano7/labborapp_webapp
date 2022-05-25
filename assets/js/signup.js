@@ -98,6 +98,23 @@ async function validacion(pagina) {
       swalErrors('Las contraseñas que digitaste no coinciden')
       return 0
     }
+
+    let timerInterval
+    Swal.fire({
+      title: '¡Estamos validando los datos!',
+      html: 'Por favor, esperá unos segundos',
+      timer: 22000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading()
+        const b = Swal.getHtmlContainer().querySelector('b')
+        timerInterval = setInterval(() => {}, 100)
+      },
+      willClose: () => {
+        clearInterval(timerInterval)
+      },
+    })
+
     let telefono = phoneInputObj.getNumber()
     let checkUserValidation = await checkUser(telefono)
     return checkUserValidation
