@@ -38,8 +38,8 @@
     />
 
     <link href="./assets/uppy/dist/webcamstyle.min.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="./assets/css/labbor.css" />
+    <link rel="stylesheet" href="./assets/css/webcam.css" />
     <link rel="stylesheet" href="./assets/css/intlTelInput.min.css" />
     <style>
       .iti__flag {
@@ -64,14 +64,14 @@
       >
         <img
           src="./labborAssets/Labbor.svg"
-          class="mx-auto d-block"
-          alt="..."
+          class="mx-auto d-block logoLabborForms"
         />
         <div class="mb-5"></div>
 
         <div class="collapse show" id="formCollapse1">
           <div class="mb-5 form-text" style="text-align: justify">
-            <h1 class="ls-tight font-bolder display-5 mb-5 text-center">
+            
+            <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
               ¿Querés afiliarte o afiliar a un colaborador?
             </h1>
             <p class="mb-6">
@@ -89,14 +89,16 @@
                 Siguiente
               </a>
             </div>
+            
           </div>
         </div>
 
         <div class="collapse" id="formCollapse2">
           <div class="mb-5 form-text" style="text-align: justify">
-            <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+            <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
               Paso 1: Abramos tu cuenta
             </h1>
+            
             <p class="mb-6 text-center">Con estos datos ingresarás a tu App</p>
             <div class="mb-5">
               <label class="form-label" for="usernom">Tu nombre</label>
@@ -164,7 +166,7 @@
 
         <div class="collapse" id="formCollapse3">
           <div class="mb-5 form-text" style="text-align: justify">
-            <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+            <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
               Paso 2: ¿Vos o tus colaboradores?
             </h1>
             <p class="mb-6 text-center">
@@ -203,7 +205,7 @@
         </div>
 
         <div class="collapse" id="formCollapse4">
-          <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+          <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
             Paso 3: Necesitamos tus datos
           </h1>
           <p class="text-center mb-10">Completá el siguiente formulario:</p>
@@ -220,7 +222,7 @@
           </div>
 
           <div class="mb-5">
-            <label class="form-label" for="tipoid">Identificación</label>
+            <label class="form-label" for="tipoid">Tipo de identificación</label>
             <select class="form-control" id="tipoid">
               <option value="01">Cédula Física</option>
             </select>
@@ -281,7 +283,7 @@
 
         <div class="collapse" id="formCollapse5">
           <div class="mb-5 form-text" style="text-align: justify">
-            <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+            <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
               Paso 4: ¿Alistá tu cámara?
             </h1>
             <p class="mb-6 text-center">Necesitamos algunas fotos</p>
@@ -309,7 +311,7 @@
         <div class="collapse" id="formCollapse6">
           <div class="mb-5 form-text" style="text-align: justify">
             <input type="hidden" name="files" id="files">
-            <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+            <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
               Paso 5: Cédula
             </h1>
             <p class="mb-6 text-center">
@@ -339,7 +341,7 @@
 
         <div class="collapse" id="formCollapse7">
           <input type="hidden" name="paquete" id="paquete">
-          <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+          <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
             Paso 6: Paquete de servicios
           </h1>
           <p class="text-center mb-10">Seleccioná el paquete de servicios:</p>
@@ -356,13 +358,15 @@
 
         <div class="collapse" id="formCollapse8">
           <input type="hidden" name="paquete" id="paquete">
-          <h1 class="ls-tight font-bolder display-6 mb-5 text-center">
+          <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
             Paso 7: ¿Todo listo?
           </h1>
           <p class="text-center mb-10">Revisa los datos y si todo está bien, presiona finalizar</p>
 
           <div class="mb-5 form-text" style="text-align: justify">
-           
+            <ul class="list-unstyled mb-5" id="resumen">
+              
+            </ul>
           </div>
           <div>
             <button type="button" 

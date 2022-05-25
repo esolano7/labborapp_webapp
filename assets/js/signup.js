@@ -72,7 +72,7 @@ function prev(currentTab) {
 }
 
 async function validacion(pagina) {
-  if (pagina === 2 || pagina === 4 || pagina === 6 || pagina === 8) return 1
+  if (pagina === 2 || pagina === 4 || pagina === 6) return 1
   if (pagina === 3) {
     if ($('#usernom').val().length === 0) {
       swalErrors('Por favor, digitá tu nombre')
@@ -104,6 +104,7 @@ async function validacion(pagina) {
       title: '¡Estamos validando los datos!',
       html: 'Por favor, esperá unos segundos',
       timer: 22000,
+      allowOutsideClick: false,
       timerProgressBar: true,
       didOpen: () => {
         Swal.showLoading()
@@ -158,6 +159,7 @@ async function validacion(pagina) {
       title: '¡Estamos validando los datos!',
       html: 'Por favor, esperá unos segundos',
       timer: 22000,
+      allowOutsideClick: false,
       timerProgressBar: true,
       didOpen: () => {
         Swal.showLoading()
@@ -175,10 +177,14 @@ async function validacion(pagina) {
     return checkPeopleValidacion
   }
   if (pagina === 7) {
-    if (UppyWrapper.core.getFiles().length === 0) {
+    if (UppyWrapper.core.getFiles().length < 2) {
       swalErrors('Por favor, adjuntá las 2 fotografías de la cédula')
       return 0
     }
+    return 1
+  }
+  if (pagina === 8) {
+    resumen()
     return 1
   }
 }
@@ -246,6 +252,18 @@ $(function () {
     showRemoveButtonAfterComplete: true,
     proudlyDisplayPoweredByUppy: true,
   })
+
+  UppyWrapper.core.getPlugin('Webcam').setOptions({
+    onBeforeSnapshot: () => Promise.resolve(),
+    countdown: false,
+    modes: ['picture'],
+    videoConstraints: {
+      facingMode: 'user',
+      width: { min: 720, ideal: 1280, max: 1420 },
+      height: { min: 480, ideal: 800, max: 1000 },
+    },
+  })
+
   UppyWrapper.core.setOptions({
     restrictions: { allowedFileTypes: ['image/*'], maxNumberOfFiles: 2 },
     onBeforeFileAdded: (currentFile, files) => {
@@ -268,11 +286,13 @@ $(function () {
   })
 })
 
+let paquetesDisponibles = {}
 function populatePaquetes() {
   $.ajax({
     method: 'GET',
     url: 'https://api.labbor.app/paquetes/',
     success: (response) => {
+      paquetesDisponibles = response
       response.forEach((paquete) => {
         let incluyeFormated = ''
         let { incluye } = JSON.parse(paquete.incluyeApp)
@@ -316,11 +336,155 @@ function populatePaquetes() {
     },
   })
 }
+
 populatePaquetes()
 
 function seleccionarPaquete(id, nextTab) {
   $('#paquete').val(id)
   next(nextTab)
 }
-//UppyWrapper.core.getFiles()
-//UppyWrapper.core.getState().currentUploads
+
+let formulario = [
+  {
+    nompreText: 'Nombre',
+    id: 'nom',
+  },
+  {
+    nompreText: 'Apellidos',
+    id: 'ap',
+  },
+  {
+    nompreText: 'Tipo de identificacion',
+    id: 'tipoid',
+  },
+  {
+    nompreText: 'Identificación',
+    id: 'cedula',
+  },
+  {
+    nompreText: 'Teléfono',
+    id: 'telefono',
+  },
+  {
+    nompreText: 'Correo Electrónico',
+    id: 'email',
+  },
+  {
+    nompreText: 'Actividad Económica',
+    id: 'actividadEconomica',
+  },
+  {
+    nompreText: 'Ingreso mensual percibido',
+    id: 'ingresobruto',
+  },
+  {
+    nompreText: 'Paquete seleccionado',
+    id: 'paquete',
+  },
+]
+
+function resumen() {
+  let content = ''
+  let valor = ''
+  for (campo of formulario) {
+    if (campo.id === 'telefono') {
+      valor = telefonoInputObj.getNumber()
+    } else if (campo.id === 'tipoid') {
+      valor = 'Cédula Física'
+    } else if (campo.id === 'paquete' && $(`#${campo.id}`).val() !== '') {
+      let paqueteSeleccionado = paquetesDisponibles.find(
+        (p) => p.id == $(`#${campo.id}`).val()
+      )
+      valor = paqueteSeleccionado.nombre + ' ¢' + paqueteSeleccionado.precio
+    } else {
+      valor = $(`#${campo.id}`).val()
+    }
+    content += `<li class="py-1 d-flex align-items-center">
+      <div>
+        <span class="text-xl text-success me-3 svg-icon svg-align-baseline">
+          <i class="bi bi-check"></i>
+        </span>
+      </div>
+      <p class="">
+        ${campo.nompreText}: ${valor}
+      </p>
+    </li>`
+  }
+  $('#resumen').html(content)
+}
+
+async function finalizar() {
+  let timerInterval
+  Swal.fire({
+    title: '¡Estamos procesando la información!',
+    html: 'Por favor, esperá unos segundos',
+    timer: 22000,
+    allowOutsideClick: false,
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading()
+      timerInterval = setInterval(() => {}, 100)
+    },
+    willClose: () => {
+      clearInterval(timerInterval)
+    },
+  })
+  let data = {
+    nom: $('#nom').val(),
+    ap: $('#ap').val(),
+    tipoid: $('#tipoid').val(),
+    cedula: $('#cedula').val(),
+    telefono: telefonoInputObj.getNumber(),
+    email: $('#email').val(),
+    actividadEconomica: $('#actividadEconomica').val(),
+    ingresobruto: $('#ingresobruto').val(),
+    paquete: $('#paquete').val(),
+    fotosCedula: UppyWrapper.core.getFiles(),
+    nombreUser: $('#usernom').val() + ' ' + $('#userap').val(),
+    telefonoUser: phoneInputObj.getNumber(),
+    passwordUser: $('#password1').val(),
+  }
+
+  try {
+    //let usercreated = await signUp(data)
+    //let token = await signIn(datos.telefonoUser, datos.passwordUser)
+  } catch (error) {
+    swalErrors(error)
+  }
+  window.location = 'dashboard.html'
+}
+
+async function signUp(data) {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'POST',
+      url: `https://api.labbor.app/signup/`,
+      data,
+      success: (response) => {
+        resolve(response)
+      },
+      error: (err) => {
+        reject(err)
+      },
+    })
+  })
+}
+
+async function signIn(telefonoUser, passwordUser) {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'POST',
+      url: `https://api.labbor.app/usuarios/signin/`,
+      data: {
+        telefono: telefonoUser,
+        password: passwordUser,
+      },
+      success: (response) => {
+        resolve(response)
+      },
+      error: (err) => {
+        reject(err)
+      },
+    })
+  })
+}

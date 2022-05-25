@@ -24,6 +24,7 @@ class uppyWrapper {
       dropPasteImportFolders:
         'Tomá la foto o buscá una que ya tengas en tu teléfono',
       myDevice: 'Mi teléfono',
+      importFrom: 'Tomá la foto con tu %{name}',
     }
 
     this.core = new Uppy({ autoProceed: true, locale: idiomaConCambios })
