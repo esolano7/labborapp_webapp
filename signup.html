@@ -75,10 +75,9 @@
               ¿Querés afiliarte o afiliar a un colaborador?
             </h1>
             <p class="mb-6">
-              ¡Claro! Estás a solo unos pasos. Vamos a necesitar alguna
-              información.
+              Estás a solo unos pasos de lograrlo. Pero antes, vamos a necesitar alguna información
             </p>
-            <p>Primero tenemos que abrir tu cuenta.</p>
+            <p>¡Empecemos por abrir una cuenta!</p>
             <img
               src="./assets/img/signup.svg"
               class="mx-auto d-block mb-10 mt-10"
@@ -86,7 +85,7 @@
             />
             <div>
               <a href="#" class="btn btn-primary w-full" onClick="next(2)">
-                Siguiente
+                Hagámoslo
               </a>
             </div>
             
@@ -96,10 +95,10 @@
         <div class="collapse" id="formCollapse2">
           <div class="mb-5 form-text" style="text-align: justify">
             <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
-              Paso 1: Abramos tu cuenta
+              Paso 1: Crea tu cuenta
             </h1>
             
-            <p class="mb-6 text-center">Con estos datos ingresarás a tu App</p>
+            <p class="mb-6 text-center">Recordá estos datos. Los necesitarás para ingresar al App</p>
             <div class="mb-5">
               <label class="form-label" for="usernom">Tu nombre</label>
               <input
@@ -111,7 +110,7 @@
             </div>
 
             <div class="mb-5">
-              <label class="form-label" for="userap">Tus pellidos</label>
+              <label class="form-label" for="userap">Tus apellidos</label>
               <input
                 type="text"
                 id="userap"
@@ -153,7 +152,7 @@
             </div>
             <div>
               <a href="#" class="btn btn-primary w-full mb-5" onClick="next(3)">
-                Siguiente
+                ¡Quiero crear mi cuenta!
               </a>
             </div>
             <div>
@@ -170,8 +169,7 @@
               Paso 2: ¿Vos o tus colaboradores?
             </h1>
             <p class="mb-6 text-center">
-              ¿Querés afiliarte vos como beneficiario o a uno de tus
-              colaboradores?
+              Seleccioná quien será el beneficiario de nuestros servicios, por favor
             </p>
             <img
               src="./assets/img/question.svg"
@@ -184,7 +182,7 @@
                 class="btn btn-primary w-full mb-5"
                 onClick="next(4,'personal')"
               >
-                Quiero afiliarme yo
+                La afiliación es para mí
               </a>
             </div>
             <div>
@@ -193,7 +191,7 @@
                 class="btn btn-danger w-full mb-5"
                 onClick="next(4,'colaborador')"
               >
-                Afiliar a un colaborador
+                La afiliación es para un colaborador
               </a>
             </div>
             <div>
@@ -205,10 +203,10 @@
         </div>
 
         <div class="collapse" id="formCollapse4">
-          <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
-            Paso 3: Necesitamos tus datos
+          <h1 class="ls-tight font-bolder display-7 mb-5 text-center"]>
+            Paso 3: Necesitamos algunos datos más
           </h1>
-          <p class="text-center mb-10">Completá el siguiente formulario:</p>
+          <p class="text-center mb-10">Por favor, completá los espacios que están vacíos</p>
 
           <input type="hidden" id="who" class="form-control form-control" />
           <div class="mb-5">
@@ -254,7 +252,7 @@
             <label for="actividadEconomica" class="form-label"
               >Actividad Económica</label
             >
-            <input type="text" id="actividadEconomica" class="form-control" placeholder="Digitá la actividad económica"/>
+            <input type="text" id="actividadEconomica" class="form-control" placeholder="Escribí aquí en que trabajás"/>
           </div>
 
           <div class="mb-5">
@@ -284,9 +282,9 @@
         <div class="collapse" id="formCollapse5">
           <div class="mb-5 form-text" style="text-align: justify">
             <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
-              Paso 4: ¿Alistá tu cámara?
+              Paso 4: ¡Alistá tu cámara!
             </h1>
-            <p class="mb-6 text-center">Necesitamos algunas fotos</p>
+            <p class="mb-6 text-center">Queremos conocerte</p>
             <img
               src="./assets/img/takepics.svg"
               class="mx-auto d-block mb-10 mt-10"
@@ -298,7 +296,7 @@
                 class="btn btn-primary w-full mt-10 mb-5"
                 onClick="next(6)"
               >
-                Siguiente
+                Listo pa' la foto
               </a>
             </div>
             <div>
@@ -315,7 +313,7 @@
               Paso 5: Cédula
             </h1>
             <p class="mb-6 text-center">
-              Tomále una foto por ambos lados a la cédula
+              Asegurate de enviarnos ambos lados de tu identificación
             </p>
             <div id="uppy-container"></div>
             <div>
@@ -344,7 +342,7 @@
           <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
             Paso 6: Paquete de servicios
           </h1>
-          <p class="text-center mb-10">Seleccioná el paquete de servicios:</p>
+          <p class="text-center mb-10">Seleccioná el que mejor se adapte a tus necesidades</p>
 
           <div class="mb-5 form-text" style="text-align: justify">
             <div id="paquetes"></div>
@@ -359,9 +357,9 @@
         <div class="collapse" id="formCollapse8">
           <input type="hidden" name="paquete" id="paquete">
           <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
-            Paso 7: ¿Todo listo?
+            Paso 7: Ya casi terminamos
           </h1>
-          <p class="text-center mb-10">Revisa los datos y si todo está bien, presiona finalizar</p>
+          <p class="text-center mb-10">Revisá tus datos. Si toda la información es correcta, hemos finalizado.</p>
 
           <div class="mb-5 form-text" style="text-align: justify">
             <ul class="list-unstyled mb-5" id="resumen">
@@ -374,12 +372,12 @@
               onClick="finalizar()"
               id="siguienteFiles"
             >
-              Finalizar
+              Todos los datos son correctos
             </a>
           </div>
           <div>
             <a href="#" class="btn btn-secondary w-full" onClick="prev(8)">
-              Atrás
+              Debo realizar un cambio
             </a>
           </div>
         </div>

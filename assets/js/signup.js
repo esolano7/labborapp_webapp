@@ -32,7 +32,7 @@ $(document).ready(function () {
 })
 
 async function next(nextTab, who) {
-  let pruebaValidacion = await validacion(nextTab)
+  let pruebaValidacion = await validacion(nextTab, who)
   if (!pruebaValidacion) return
   Swal.close()
   let currentTab = nextTab - 1
@@ -48,6 +48,8 @@ async function next(nextTab, who) {
     $('#cedula').attr('placeholder', 'Tu número de identificación')
     $('#email').attr('placeholder', 'Tu correo electrónico (opcional)')
     $('#telefono').attr('placeholder', 'Tu teléfono')
+    $('#actividadEconomica').attr('placeholder', 'Escribí aquí en que trabajás')
+    $('#ingresobruto').attr('placeholder', '¿Cuánto ganás por mes?')
   }
   if (who && who === 'colaborador') {
     $('#nom').val('')
@@ -62,6 +64,14 @@ async function next(nextTab, who) {
       'Correo electrónico del colaborador (opcional)'
     )
     $('#telefono').attr('placeholder', 'Teléfono del colaborador')
+    $('#actividadEconomica').attr(
+      'placeholder',
+      'Escribí aquí en que trabaja tu colaborador'
+    )
+    $('#ingresobruto').attr(
+      'placeholder',
+      '¿Cuánto percibe tu colaborador al mes?'
+    )
   }
 }
 
@@ -71,31 +81,42 @@ function prev(currentTab) {
   $(`#formCollapse${prevTab}`).collapse('show')
 }
 
-async function validacion(pagina) {
+async function validacion(pagina, who) {
   if (pagina === 2 || pagina === 4 || pagina === 6) return 1
   if (pagina === 3) {
     if ($('#usernom').val().length === 0) {
-      swalErrors('Por favor, digitá tu nombre')
+      swalErrors(
+        '¡Alto!',
+        'Tenés que digitar tu nombre (por el que te llama tu mamá cuando se enoja, por ejemplo)'
+      )
       return 0
     }
     if ($('#userap').val().length === 0) {
-      swalErrors('Por favor, digitá tus apellidos')
+      swalErrors(
+        '¡Alto!',
+        'Tenés que digitar tus apellidos, hacé que tus papás se sientan orgullosos'
+      )
       return 0
     }
     if (!phoneInputObj.isValidNumber()) {
       swalErrors(
-        'Revisa el número de teléfono que digitaste. <br>Algo no anda bien'
+        '¡Aquí hay algo raro!',
+        '¿Colocaste bien tu número de teléfono? Revisá que tenga 8 dígitos, por favor'
       )
       return 0
     }
     if (!validar('password', $('#password1').val())) {
       swalErrors(
-        'La contraseña debe tener al menos 8 caracteres entre números y letras mayúsculas y minúsculas'
+        '¡Alto! Que aquí nos vamos a poner delicados',
+        'Revisá que la contraseña tenga 8 caracteres (incluidos número, mayúsculas y minúsculas)'
       )
       return 0
     }
     if ($('#password1').val() !== $('#password2').val()) {
-      swalErrors('Las contraseñas que digitaste no coinciden')
+      swalErrors(
+        '¡Atención!',
+        'Tenés que colocar la contraseña exactamente igual en ambos espacios'
+      )
       return 0
     }
 
@@ -122,36 +143,59 @@ async function validacion(pagina) {
   }
   if (pagina === 5) {
     if ($('#nom').val().length === 0) {
-      swalErrors('Por favor, digitá el nombre')
+      swalErrors('¡Alto!', 'Por favor, digitá el nombre')
       return 0
     }
     if ($('#ap').val().length === 0) {
-      swalErrors('Por favor, digitá los apellidos')
+      swalErrors('¡Alto!', 'Por favor, digitá los apellidos')
       return 0
     }
     if ($('#tipoid').val() == '01' && $('#cedula').val().length < 9) {
-      swalErrors('Digita la cédula con los 9 dígitos')
+      swalErrors('¡Alto!', 'El número de cédula debe tener 9 dígitos')
       return 0
     }
     if (!telefonoInputObj.isValidNumber()) {
       swalErrors(
-        'Revisa el número de teléfono que digitaste. <br>Algo no anda bien'
+        '¡Error!',
+        'Revisa el número de teléfono que digitaste. Algo no anda bien'
       )
       return 0
     }
     if ($('#email').val().length > 0 && !validar('email', $('#email').val())) {
       swalErrors(
-        'Revisa el correo electrónico que digitaste. <br>Algo no anda bien'
+        '¡Alto!',
+        'Revisa el correo electrónico que digitaste. Algo no anda bien'
       )
       return 0
     }
-    if ($('#actividadEconomica').val().length == 0) {
-      swalErrors('Digitá la actividad económica')
-      return 0
-    }
-    if ($('#ingresobruto').val().length == 0) {
-      swalErrors('Digitá el ingreso mensual percibido')
-      return 0
+
+    if (who && who === 'personal') {
+      if ($('#actividadEconomica').val().length == 0) {
+        swalErrors('¡Alto!', 'Te faltó contarnos a que te dedicás')
+        return 0
+      }
+      if ($('#ingresobruto').val().length == 0) {
+        swalErrors(
+          '¡Alto!',
+          'Te faltó escribir cuánto ganás por mes. Tranquilo, prometemos no contar'
+        )
+        return 0
+      }
+    } else if (who && who === 'colaborador') {
+      if ($('#actividadEconomica').val().length == 0) {
+        swalErrors(
+          '¡Alto!',
+          'Te faltó contarnos a que se dedica tu colaborador'
+        )
+        return 0
+      }
+      if ($('#ingresobruto').val().length == 0) {
+        swalErrors(
+          '¡Alto!',
+          'Te faltó escribir cuánto percibe tu colaborador al mes'
+        )
+        return 0
+      }
     }
 
     let timerInterval
@@ -178,7 +222,7 @@ async function validacion(pagina) {
   }
   if (pagina === 7) {
     if (UppyWrapper.core.getFiles().length < 2) {
-      swalErrors('Por favor, adjuntá las 2 fotografías de la cédula')
+      swalErrors('¡Alto!', 'Asegurate de adjuntar las 2 fotografías')
       return 0
     }
     return 1
@@ -198,7 +242,7 @@ async function checkUser(telefono) {
       success: (response) => {
         console.log(response)
         if (response) {
-          swalErrors('Esta cuenta ya existe en nuestro sistema')
+          swalErrors('¡Alto!', 'Esta cuenta ya existe en nuestro sistema')
           resolve(0)
         } else {
           resolve(1)
@@ -216,6 +260,7 @@ async function checkPeople(tipoid, cedula) {
       success: (response) => {
         if (response) {
           swalErrors(
+            '¡Alto!',
             'El número de cédula digitado ya existe en nuestro sistema'
           )
           resolve(0)
@@ -230,9 +275,9 @@ async function checkPeople(tipoid, cedula) {
   })
 }
 
-function swalErrors(text) {
+function swalErrors(title, text) {
   Swal.fire({
-    title: 'Error!',
+    title: title,
     html: text,
     icon: 'error',
     confirmButtonText: 'Ok',
@@ -331,7 +376,7 @@ function populatePaquetes() {
         ${incluyeFormated}
         </ul>
         <!-- Button -->
-        <button type="button" class="btn w-full btn-warning" onClick="seleccionarPaquete(${paquete.id},8)">Seleccionar</button></div>`
+        <button type="button" class="btn w-full btn-warning" onClick="seleccionarPaquete(${paquete.id},8)">¡Quiero el paquete ${paquete.nombre}!</button></div>`
         $('#paquetes').append(content)
       })
     },
@@ -453,7 +498,7 @@ async function finalizar() {
     localStorage.setItem('u', usercreated.userCreated)
     window.location = 'dashboard.html'
   } catch (error) {
-    swalErrors(error)
+    swalErrors('¡Alto!', error)
   }
 }
 
