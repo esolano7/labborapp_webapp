@@ -35,6 +35,7 @@ class uppyWrapper {
         modes: ['picture'],
         showRecordingLength: true,
         showVideoSourceDropdown: true,
+        mirror: false,
       })
       .use(AwsS3, { companionUrl: serverUrl, limit: 1 })
 
