@@ -257,6 +257,7 @@ $(function () {
     onBeforeSnapshot: () => Promise.resolve(),
     countdown: false,
     modes: ['picture'],
+    mirror: false,
     videoConstraints: {
       facingMode: 'user',
       width: { min: 720, ideal: 1280, max: 1420 },
