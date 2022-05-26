@@ -259,7 +259,7 @@ $(function () {
     modes: ['picture'],
     mirror: false,
     videoConstraints: {
-      facingMode: 'user',
+      facingMode: 'environment',
       width: { min: 720, ideal: 1280, max: 1420 },
       height: { min: 480, ideal: 800, max: 1000 },
     },
