@@ -438,21 +438,23 @@ async function finalizar() {
     telefono: telefonoInputObj.getNumber(),
     email: $('#email').val(),
     actividadEconomica: $('#actividadEconomica').val(),
-    ingresobruto: $('#ingresobruto').val(),
-    paquete: $('#paquete').val(),
-    fotosCedula: UppyWrapper.core.getFiles(),
+    ingresobruto: Number($('#ingresobruto').val()),
+    paquete: Number($('#paquete').val()),
+    fotosCedula: JSON.stringify(UppyWrapper.core.getFiles()),
     nombreUser: $('#usernom').val() + ' ' + $('#userap').val(),
     telefonoUser: phoneInputObj.getNumber(),
     passwordUser: $('#password1').val(),
   }
 
   try {
-    //let usercreated = await signUp(data)
-    //let token = await signIn(datos.telefonoUser, datos.passwordUser)
+    let usercreated = await signUp(data)
+    let token = await signIn(data.telefonoUser, data.passwordUser)
+    localStorage.setItem('at', token)
+    localStorage.setItem('u', usercreated.userCreated)
+    window.location = 'dashboard.html'
   } catch (error) {
     swalErrors(error)
   }
-  window.location = 'dashboard.html'
 }
 
 async function signUp(data) {
