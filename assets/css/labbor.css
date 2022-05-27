@@ -94,7 +94,20 @@
     height: 190px;
   }
 }
-
+@media (max-width: 991px) {
+  .homebutton {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
+  .mx-n2 {
+    text-align: center;
+  }
+  .lead {
+    text-align: justify;
+  }
+}
 /* cyrillic-ext */
 @font-face {
   font-family: 'Rubik';
