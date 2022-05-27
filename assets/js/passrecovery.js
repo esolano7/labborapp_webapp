@@ -76,7 +76,3 @@ async function passRecovery(telefonoUser) {
     })
   })
 }
-
-// 6LeQeiAgAAAAABBGKr_cZrwq7qw70ag_jA3IJ-Zy
-
-// 6LeQeiAgAAAAAOHwrzkQ_UUe1Gxkd6lTUWIajcro
