@@ -32,12 +32,12 @@ async function sendCode() {
     return 0
   }
 
-  //let response = grecaptcha.getResponse()
-  //
-  //if (response.length == 0) {
-  //  swalErrors('¡Alto!', 'Demostranos que no sos un robot')
-  //  return 0
-  //}
+  let response = grecaptcha.getResponse()
+  if (response.length == 0) {
+    swalErrors('¡Alto!', 'Demostranos que no sos un robot')
+    return 0
+  }
+
   clearOTP()
   let timerInterval
   Swal.fire({
