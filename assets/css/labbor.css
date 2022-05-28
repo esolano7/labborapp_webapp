@@ -233,3 +233,35 @@
   color: #fff;
   font-size: 1em;
 }
+
+/* Código de recuperación */
+.inputs input {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border: 1px solid #3cc6e5;
+}
+.validate {
+  border-radius: 20px;
+  height: 40px;
+  background-color: #3cc6e5;
+  border: 1px solid #3cc6e5;
+  width: 140px;
+}
+.btn-warning:disabled,
+.btn-warning.disabled {
+  color: #fff;
+  background-color: rgb(255, 64, 64, 0.3);
+  border-color: rgb(255, 64, 64, 0.3);
+}

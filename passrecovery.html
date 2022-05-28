@@ -49,10 +49,12 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="text/javascript">
       var onloadCallback = function () {
-        grecaptcha.render('html_element', {
+        grecaptcha.render('recaptcha', {
           sitekey: '6LeQeiAgAAAAABBGKr_cZrwq7qw70ag_jA3IJ-Zy',
         })
       }
+
+      grecaptcha.getResponse('recaptcha')
     </script>
   </head>
   <body>
@@ -63,50 +65,198 @@
       <div class="mb-5">
         <img src="./labborAssets/Labbor.svg" class="mx-auto d-block" />
       </div>
-      <div class="mb-5">
-        <p class="text-center mb-10">
-          Ingresá el número de teléfono con el que creaste tu cuenta
-        </p>
-      </div>
+
       <form>
-        <div class="mb-5">
-          <label class="form-label" for="email">Teléfono</label>
-          <input
-            type="tel"
-            id="phone"
-            class="form-control form-control"
-            placeholder="Tu número de celular"
-          />
+        <div class="collapse show" id="formCollapse1">
+          <div class="mb-5">
+            <p class="text-center mb-10">
+              Ingresá el número de teléfono con el que creaste tu cuenta
+            </p>
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label" for="email">Teléfono</label>
+            <input
+              type="tel"
+              id="phone"
+              class="form-control form-control"
+              placeholder="Tu número de celular"
+            />
+          </div>
+          <div class="mb-5">
+            <div id="recaptcha"></div>
+            <div
+              class="g-recaptcha"
+              data-sitekey="6LeQeiAgAAAAABBGKr_cZrwq7qw70ag_jA3IJ-Zy"
+            ></div>
+          </div>
+          <div>
+            <button
+              type="button"
+              class="btn btn-primary w-full mb-5"
+              onClick="sendCode()"
+            >
+              Recuperar contraseña
+            </button>
+          </div>
+          <div>
+            <button
+              type="button"
+              href="index.html"
+              class="btn btn-secondary w-full"
+            >
+              Volver al inicio
+            </button>
+          </div>
         </div>
-        <div class="mb-5">
-          <div id="html_element"></div>
-          <div
-            class="g-recaptcha"
-            data-sitekey="6LeQeiAgAAAAABBGKr_cZrwq7qw70ag_jA3IJ-Zy"
-          ></div>
+
+        <div class="collapse" id="formCollapse2">
+          <div class="mb-5">
+            <p class="text-center mb-10 display-7">
+              Ingresá el código que te enviamos
+            </p>
+          </div>
+
+          <div class="mb-5">
+            <div
+              id="otp"
+              class="inputs d-flex flex-row justify-content-center mt-2"
+            >
+              <input
+                class="m-2 text-center form-control rounded"
+                type="text"
+                id="first"
+                maxlength="1"
+                autocomplete="off"
+              />
+              <input
+                class="m-2 text-center form-control rounded"
+                type="text"
+                id="second"
+                maxlength="1"
+                autocomplete="off"
+              />
+              <input
+                class="m-2 text-center form-control rounded"
+                type="text"
+                id="third"
+                maxlength="1"
+                autocomplete="off"
+              />
+              <input
+                class="m-2 text-center form-control rounded"
+                type="text"
+                id="fourth"
+                maxlength="1"
+                autocomplete="off"
+              />
+              <input
+                class="m-2 text-center form-control rounded"
+                type="text"
+                id="fifth"
+                maxlength="1"
+                autocomplete="off"
+              />
+              <input
+                class="m-2 text-center form-control rounded"
+                type="text"
+                id="sixth"
+                maxlength="1"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <div>
+            <button
+              type="button"
+              class="btn btn-primary w-full mb-5"
+              onClick="validarCodigo()"
+              id="validarCod"
+              disabled="true"
+            >
+              Validar mi código
+            </button>
+          </div>
+          <div>
+            <a
+              type="button"
+              href="index.html"
+              class="btn btn-secondary w-full mb-5"
+            >
+              Volver al inicio
+            </a>
+          </div>
+          <div>
+            <button
+              type="button"
+              class="btn btn-warning w-full mb-5"
+              onClick="sendCode()"
+              id="buttonTimer"
+              disabled="true"
+            >
+              Reenviar
+            </button>
+          </div>
         </div>
-        <div>
-          <button
-            type="button"
-            class="btn btn-primary w-full mb-5"
-            onClick="login()"
-          >
-            Recuperar contraseña
-          </button>
-        </div>
-        <div>
-          <button
-            type="button"
-            href="index.html"
-            class="btn btn-secondary w-full"
-          >
-            Volver al inicio
-          </button>
+
+        <div class="collapse" id="formCollapse3">
+          <div class="mb-5">
+            <p class="text-center mb-10">Ok, creemos una contraseña nueva</p>
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label" for="password">Contraseña</label>
+            <input
+              type="password"
+              class="form-control form-control"
+              id="password1"
+              autocomplete="current-password"
+              placeholder="Tu contraseña"
+            />
+          </div>
+          <div class="mb-5">
+            <label class="form-label" for="password"
+              >Confirmación de contraseña</label
+            >
+            <input
+              type="password"
+              class="form-control form-control"
+              id="password2"
+              autocomplete="current-password"
+              placeholder="Confirma tu contraseña"
+            />
+          </div>
+          <div>
+            <button
+              type="button"
+              class="btn btn-primary w-full mb-5"
+              onClick="login()"
+            >
+              Cambiar e ingresar
+            </button>
+          </div>
+          <div>
+            <button
+              type="button"
+              href="index.html"
+              class="btn btn-secondary w-full"
+            >
+              Volver al inicio
+            </button>
+          </div>
         </div>
       </form>
     </div>
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
     <script src="./assets/js/intlTelInput.js"></script>
     <script src="./assets/js/validaciones.js?v=2"></script>
     <script src="./assets/js/passrecovery.js?v=2"></script>

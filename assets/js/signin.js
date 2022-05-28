@@ -57,7 +57,7 @@ async function login() {
   let passwordUser = $('#password').val()
 
   try {
-    let token = await signIn(telefonoUser, passwordUser)
+    let { token, userid } = await signIn(telefonoUser, passwordUser)
     localStorage.setItem('at', token)
     window.location = 'dashboard.html'
   } catch (error) {
