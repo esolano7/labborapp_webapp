@@ -366,17 +366,30 @@ function populatePaquetes() {
             <span class="d-block mt-n8"> / mes</span>
           </div>
         </div>
-        <!-- Text -->
-        <p class="text-muted text-sm mt-3">
-          ${paquete.descripcionApp}
-        </p>
-        <hr class="opacity-0 my-2" />
+        <!-- Text -->`
+        if (paquete.descripcionApp != null) {
+          content += `
+          <p class="text-muted text-sm mt-3">
+            ${paquete.descripcionApp}
+          </p>
+          `
+        }
+        content += `<hr class="opacity-0 my-2" />
         <!-- List -->
         <ul class="list-unstyled mb-5 paquete">
         ${incluyeFormated}
-        </ul>
-        <!-- Button -->
-        <button type="button" class="btn w-full btn-warning" onClick="seleccionarPaquete(${paquete.id},8)">¡Quiero el paquete ${paquete.nombre}!</button></div>`
+        </ul>`
+
+        if (paquete.disclaimerApp != null) {
+          content += `
+          <p class="text-muted text-xs mt-3 mb-5 text-center">
+            ${paquete.disclaimerApp}
+          </p>
+          `
+        }
+
+        content += `<!-- Button -->
+        <button type="button" class="btn w-full btn-warning mb-10" onClick="seleccionarPaquete(${paquete.id},8)">¡Quiero el paquete ${paquete.nombre}!</button></div>`
         $('#paquetes').append(content)
       })
     },
