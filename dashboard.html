@@ -141,5 +141,14 @@
     </div>
     <script src="./assets/js/demo.js"></script>
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <script>
+      function check() {
+        $.ajax({
+          method: 'GET',
+          url: 'https://api.labbor.app/usuarios/1',
+          success: (response) => {},
+        })
+      }
+    </script>
   </body>
 </html>
