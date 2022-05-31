@@ -26,6 +26,18 @@ const idPersona = query.get('id')
 async function myPeople() {
   let people = await getMyPeople(idPersona)
   if (people.length === 1) {
+    let estadoBadge = ''
+    if (people[0].estado === 'aprobacion') {
+      estado.label = 'Pend. Aprob.'
+      estado.color = 'warning'
+      estadoBadge = `<span class="badge mx-1 bg-${estado.color} text-white">${estado.label}</span>`
+    } else if (people[0].estado === 'activo') {
+      estado.label = 'Activo'
+      estado.color = 'success'
+      estadoBadge = `<span class="badge mx-1 bg-${estado.color} text-white">${estado.label}</span>`
+    }
+    $('#estado').html(estadoBadge)
+
     telefonoInputObj.setNumber(people[0].telefono)
     $('#nom').val(people[0].nom)
     $('#ap').val(people[0].ap)
