@@ -505,6 +505,7 @@ async function finalizar() {
   }
 
   try {
+    await signUp(data)
     let { token, userid, user } = await signIn(
       data.telefonoUser,
       data.passwordUser
