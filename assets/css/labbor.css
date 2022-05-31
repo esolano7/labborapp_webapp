@@ -82,6 +82,18 @@
   background-color: #dfe8ea !important;
 }
 
+.text-bg-warning {
+  color: #fff;
+  background-color: rgb(255, 64, 64);
+  border-color: rgb(255, 64, 64);
+}
+
+.text-bg-success {
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+}
+
 @media (min-width: 992px) {
   .navbar-vertical.navbar-expand-lg .navbar-brand {
     margin: auto !important;

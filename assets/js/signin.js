@@ -57,9 +57,19 @@ async function login() {
   let passwordUser = $('#password').val()
 
   try {
-    let { token, userid } = await signIn(telefonoUser, passwordUser)
+    let { token, userid, user } = await signIn(telefonoUser, passwordUser)
     localStorage.setItem('at', token)
-    window.location = 'dashboard.html'
+    localStorage.setItem('uid', userid)
+    localStorage.setItem('user', JSON.stringify(user))
+    let onesignal_push_id = localStorage.getItem('onesignal_push_id')
+    if (localStorage.getItem('onesignal_push_id')) {
+      await onesignal_id(token, userid, onesignal_push_id)
+    }
+    if (user.rol === 'admin') {
+      window.location = 'admin.html'
+    } else {
+      window.location = 'dashboard.html'
+    }
   } catch (error) {
     if (cuentaErrores > 2) {
       clearInterval(timerInterval)
@@ -88,6 +98,24 @@ async function signIn(telefonoUser, passwordUser) {
       method: 'POST',
       url: `https://api.labbor.app/usuarios/signin/`,
       data: { telefono: telefonoUser, password: passwordUser },
+      success: (response) => {
+        resolve(response)
+      },
+      error: (err) => {
+        reject(err)
+        cuentaErrores++
+      },
+    })
+  })
+}
+
+async function onesignal_id(token, id, onesignal_id) {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'PATCH',
+      url: `https://api.labbor.app/usuario/${id}/`,
+      data: { onesignal_id },
+      headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
         resolve(response)
       },

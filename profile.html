@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Labbor.app</title>
+    <link href="./assets/css/webpixels.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/img//favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/img//favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/img//site.webmanifest" />
+    <link rel="stylesheet" href="./assets/css/intlTelInput.min.css" />
+    <link rel="stylesheet" href="./assets/css/labbor.css" />
+    <style>
+      .iti__flag {
+        background-image: url('./assets/img/flags.png');
+      }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .iti__flag {
+          background-image: url('./assets/img/flags@2x.png');
+        }
+      }
+      .iti {
+        position: relative;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+      <!-- Vertical Navbar -->
+      <nav
+        class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 py-lg-0 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
+        id="navbarVertical"
+      >
+        <div class="container-fluid">
+          <!-- Toggler -->
+          <button
+            class="navbar-toggler ms-n2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#sidebarCollapse"
+            aria-controls="sidebarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Brand -->
+          <a class="navbar-brand py-lg-5 mb-lg-5 px-lg-6 me-0" href="#">
+            <img src="./labborAssets/Labbor.svg" class="logoMenu" />
+          </a>
+          <!-- User menu (mobile) -->
+          <div class="navbar-user d-lg-none"></div>
+          <!-- Collapse -->
+
+          <div class="collapse navbar-collapse" id="sidebarCollapse">
+            <!-- Navigation -->
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="dashboard.html">
+                  <i class="bi bi-house"></i> Inicio
+                </a>
+              </li>
+            </ul>
+            <ul class="navbar-nav mb-md-4">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-bell"></i> Notificaciones
+                  <span
+                    class="badge bg-soft-danger text-danger rounded-pill d-inline-flex align-items-center ms-auto"
+                    >23</span
+                  >
+                </a>
+              </li>
+            </ul>
+            <!-- Push content down -->
+            <div class="mt-auto"></div>
+            <!-- User (md) -->
+            <ul class="navbar-nav mb-5">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="bi bi-person-square"></i> Cambiar contraseña
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#" onClick="logout()">
+                  <i class="bi bi-box-arrow-left"></i> Salir
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Main content -->
+      <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+        <!-- Main -->
+        <main class="py-6 bg-surface-secondary">
+          <div class="container-fluid">
+            <div class="mb-npx">
+              <div class="row align-items-center">
+                <div class="col-xl-7 mx-auto">
+                  <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+                    <!-- Title -->
+                    <h1 class="h2 mb-0 ls-tight">Mi perfil de asociado</h1>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-center">
+                        <a href="#" class="avatar avatar-xl rounded-circle">
+                          <img alt="..." src="./assets/img/gabriel.png" />
+                        </a>
+                      </div>
+                      <div class="text-center my-6">
+                        <!-- Title -->
+                        <a href="#" class="d-block h5 mb-0">Gabriel Zamora</a>
+                        <!-- Subtitle -->
+                        <span class="d-block text-sm text-muted"
+                          >gzamora@mentorcr.com</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-7 mx-auto">
+              <ul
+                class="nav nav-tabs justify-content-center"
+                id="myTab"
+                role="tablist"
+              >
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="home-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#home-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="home-tab-pane"
+                    aria-selected="true"
+                  >
+                    Datos generales
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="profile-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#profile-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="profile-tab-pane"
+                    aria-selected="false"
+                  >
+                    Archivos
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="contact-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#contact-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="contact-tab-pane"
+                    aria-selected="false"
+                  >
+                    Plan
+                  </button>
+                </li>
+              </ul>
+              <div class="tab-content mt-6" id="myTabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="home-tab-pane"
+                  role="tabpanel"
+                  aria-labelledby="home-tab"
+                  tabindex="0"
+                >
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="mb-0">Datos generales</h5>
+                    </div>
+                    <div class="card-body">
+                      <form class="mb-6">
+                        <div class="mb-5">
+                          <label class="form-label" for="nom">Nombre</label>
+                          <input
+                            type="text"
+                            id="nom"
+                            class="form-control form-control"
+                          />
+                        </div>
+
+                        <div class="mb-5">
+                          <label class="form-label" for="ap">Apellidos</label>
+                          <input
+                            type="text"
+                            id="ap"
+                            class="form-control form-control"
+                          />
+                        </div>
+
+                        <div class="mb-5">
+                          <label class="form-label" for="tipoid"
+                            >Tipo de identificación</label
+                          >
+                          <select class="form-control" id="tipoid">
+                            <option value="01">Cédula Física</option>
+                          </select>
+                        </div>
+
+                        <div class="mb-5">
+                          <label class="form-label" for="cedula"
+                            >Identificación</label
+                          >
+                          <input
+                            type="text"
+                            id="cedula"
+                            class="form-control form-control"
+                            placeholder="Digita el número de identificación"
+                          />
+                        </div>
+
+                        <div class="mb-5">
+                          <label class="form-label" for="telefono"
+                            >Teléfono</label
+                          >
+                          <input
+                            type="tel"
+                            id="telefono"
+                            class="form-control form-control"
+                          />
+                        </div>
+
+                        <div class="mb-5">
+                          <label
+                            for="exampleFormControlInput1"
+                            class="form-label"
+                            >Correo Electrónico</label
+                          >
+                          <input type="email" id="email" class="form-control" />
+                        </div>
+
+                        <div class="mb-5">
+                          <label for="actividadEconomica" class="form-label"
+                            >Actividad Económica</label
+                          >
+                          <input
+                            type="text"
+                            id="actividadEconomica"
+                            class="form-control"
+                            placeholder="Escribí aquí en que trabajás"
+                          />
+                        </div>
+
+                        <div class="mb-5">
+                          <label for="ingresobruto" class="form-label"
+                            >Ingreso mensual percibido</label
+                          >
+
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"
+                              >¢</span
+                            >
+                            <input
+                              type="text"
+                              id="ingresobruto"
+                              class="form-control"
+                              placeholder="Digitá el ingreso mensual percibido"
+                            />
+                          </div>
+                        </div>
+                        <!-- Divider -->
+                        <hr class="navbar-divider my-5 opacity-20" />
+                        <div class="text-end">
+                          <a
+                            href="dashboard.html"
+                            type="button"
+                            class="btn btn-sm btn-neutral me-2"
+                          >
+                            Cancelar
+                          </a>
+                          <button
+                            type="button"
+                            class="btn btn-sm btn-primary"
+                            onClick="save()"
+                          >
+                            Guardar
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="profile-tab-pane"
+                  role="tabpanel"
+                  aria-labelledby="profile-tab"
+                  tabindex="0"
+                >
+                  <div class="card" id="archivos"></div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="contact-tab-pane"
+                  role="tabpanel"
+                  aria-labelledby="contact-tab"
+                  tabindex="0"
+                >
+                  <div class="card card-pricing px-8 py-7 border-0">
+                    <div id="paquete"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/js/intlTelInput.js?v=2"></script>
+    <script src="./assets/js/userSession.js?v=2"></script>
+    <script src="./assets/js/validaciones.js?v=2"></script>
+    <script src="./assets/js/profile.js?v=2"></script>
+  </body>
+</html>
