@@ -505,10 +505,13 @@ async function finalizar() {
   }
 
   try {
-    let usercreated = await signUp(data)
-    let token = await signIn(data.telefonoUser, data.passwordUser)
+    let { token, userid, user } = await signIn(
+      data.telefonoUser,
+      data.passwordUser
+    )
     localStorage.setItem('at', token)
-    localStorage.setItem('u', usercreated.userCreated)
+    localStorage.setItem('uid', userid)
+    localStorage.setItem('user', JSON.stringify(user))
     window.location = 'dashboard.html'
   } catch (error) {
     swalErrors('¡Alto!', error)
