@@ -69,24 +69,38 @@
         <div class="mb-5"></div>
 
         <div class="collapse show" id="formCollapse4">
-          <h1 class="ls-tight font-bolder display-7 mb-5 text-center"]>
+          <h1 class="ls-tight font-bolder display-7 mb-5 text-center" ]>
             Paso 1: Necesitamos algunos datos más
           </h1>
-          <p class="text-center mb-10">Por favor, completá los espacios que están vacíos</p>
+          <p class="text-center mb-10">
+            Por favor, completá los espacios que están vacíos
+          </p>
 
           <input type="hidden" id="who" class="form-control form-control" />
           <div class="mb-5">
             <label class="form-label" for="nom">Nombre</label>
-            <input type="text" id="nom" class="form-control form-control" placeholder="Digitá el nombre" />
+            <input
+              type="text"
+              id="nom"
+              class="form-control form-control"
+              placeholder="Digitá el nombre"
+            />
           </div>
 
           <div class="mb-5">
             <label class="form-label" for="ap">Apellidos</label>
-            <input type="text" id="ap" class="form-control form-control"  placeholder="Digitá los apellidos"/>
+            <input
+              type="text"
+              id="ap"
+              class="form-control form-control"
+              placeholder="Digitá los apellidos"
+            />
           </div>
 
           <div class="mb-5">
-            <label class="form-label" for="tipoid">Tipo de identificación</label>
+            <label class="form-label" for="tipoid"
+              >Tipo de identificación</label
+            >
             <select class="form-control" id="tipoid">
               <option value="01">Cédula Física</option>
             </select>
@@ -111,14 +125,24 @@
             <label for="exampleFormControlInput1" class="form-label"
               >Correo Electrónico</label
             >
-            <input type="email" id="email" class="form-control"  placeholder="juan@ejemplo.com"/>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              placeholder="juan@ejemplo.com"
+            />
           </div>
 
           <div class="mb-5">
             <label for="actividadEconomica" class="form-label"
               >Actividad Económica</label
             >
-            <input type="text" id="actividadEconomica" class="form-control" placeholder="Escribí aquí la actividad económica"/>
+            <input
+              type="text"
+              id="actividadEconomica"
+              class="form-control"
+              placeholder="Escribí aquí la actividad económica"
+            />
           </div>
 
           <div class="mb-5">
@@ -128,9 +152,13 @@
 
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">¢</span>
-              <input type="text" id="ingresobruto" class="form-control" placeholder="Digitá el ingreso mensual percibido"/>
+              <input
+                type="text"
+                id="ingresobruto"
+                class="form-control"
+                placeholder="Digitá el ingreso mensual percibido"
+              />
             </div>
-            
           </div>
 
           <div>
@@ -139,7 +167,11 @@
             </a>
           </div>
           <div>
-            <a href="dashboard.html" class="btn btn-secondary w-full" onClick="prev(4)">
+            <a
+              href="dashboard.html"
+              class="btn btn-secondary w-full"
+              onClick="prev(4)"
+            >
               Atrás
             </a>
           </div>
@@ -174,7 +206,7 @@
         </div>
         <div class="collapse" id="formCollapse6">
           <div class="mb-5 form-text" style="text-align: justify">
-            <input type="hidden" name="files" id="files">
+            <input type="hidden" name="files" id="files" />
             <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
               Paso 3: Cédula
             </h1>
@@ -183,28 +215,30 @@
             </p>
             <div id="uppy-container"></div>
             <div>
-              <button type="button" 
+              <button
+                type="button"
                 class="btn btn-primary w-full mt-10 mb-5"
                 onClick="next(7)"
                 id="siguienteFiles"
               >
                 Siguiente
-              </a>
+              </button>
             </div>
             <div>
-              <button type="button" 
+              <button
+                type="button"
                 class="btn btn-secondary w-full"
                 onClick="prev(6)"
                 id="atrasFiles"
               >
                 Atrás
-              </a>
+              </button>
             </div>
           </div>
         </div>
 
         <div class="collapse" id="formCollapse7">
-          <input type="hidden" name="paquete" id="paquete">
+          <input type="hidden" name="paquete" id="paquete" />
           <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
             Paso 4: Paquete de servicios
           </h1>
@@ -221,25 +255,27 @@
         </div>
 
         <div class="collapse" id="formCollapse8">
-          <input type="hidden" name="paquete" id="paquete">
+          <input type="hidden" name="paquete" id="paquete" />
           <h1 class="ls-tight font-bolder display-7 mb-5 text-center">
             Paso 5: Ya casi terminamos
           </h1>
-          <p class="text-center mb-10">Revisá los datos. Si toda la información es correcta, hemos finalizado.</p>
+          <p class="text-center mb-10">
+            Revisá los datos. Si toda la información es correcta, hemos
+            finalizado.
+          </p>
 
           <div class="mb-5 form-text" style="text-align: justify">
-            <ul class="list-unstyled mb-5" id="resumen">
-              
-            </ul>
+            <ul class="list-unstyled mb-5" id="resumen"></ul>
           </div>
           <div>
-            <button type="button" 
+            <button
+              type="button"
               class="btn btn-success w-full mt-10 mb-5"
               onClick="finalizar()"
               id="siguienteFiles"
             >
               Todos los datos son correctos
-            </a>
+            </button>
           </div>
           <div>
             <a href="#" class="btn btn-secondary w-full" onClick="prev(8)">
@@ -247,7 +283,6 @@
             </a>
           </div>
         </div>
-
       </div>
       <script src="./assets/js/jquery-3.6.0.min.js"></script>
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
