@@ -63,8 +63,7 @@ async function login() {
     localStorage.setItem('user', JSON.stringify(user))
     let onesignal_push_id = localStorage.getItem('onesignal_push_id')
     if (localStorage.getItem('onesignal_push_id')) {
-      let os = await onesignal_id(token, userid, onesignal_push_id)
-      alert(os)
+      await onesignal_id(token, userid, onesignal_push_id)
     }
     if (user.rol === 'admin') {
       window.location = 'admin.html'

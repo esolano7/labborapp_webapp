@@ -78,5 +78,3 @@ function addRow(person, estado) {
 }
 
 isLoginDashboard()
-isClientDashboard()
-myPeople()
