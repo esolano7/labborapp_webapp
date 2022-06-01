@@ -41,7 +41,9 @@ async function logout() {
   let id = localStorage.getItem('uid')
   let token = localStorage.getItem('at')
   await onesignal_id(token, id, '0')
-  localStorage.clear()
+  localStorage.setItem('uid', '')
+  localStorage.setItem('at', '')
+  localStorage.setItem('user', '')
   window.location = '/index.html'
 }
 
