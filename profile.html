@@ -80,23 +80,12 @@
                 </a>
               </li>
             </ul>
-            <ul class="navbar-nav mb-md-4">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <i class="bi bi-bell"></i> Notificaciones
-                  <span
-                    class="badge bg-soft-danger text-danger rounded-pill d-inline-flex align-items-center ms-auto"
-                    >23</span
-                  >
-                </a>
-              </li>
-            </ul>
             <!-- Push content down -->
             <div class="mt-auto"></div>
             <!-- User (md) -->
             <ul class="navbar-nav mb-5">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="passchange">
                   <i class="bi bi-person-square"></i> Cambiar contraseña
                 </a>
               </li>
@@ -185,6 +174,7 @@
                             type="text"
                             id="nom"
                             class="form-control form-control"
+                            readonly="true"
                           />
                         </div>
 
@@ -194,6 +184,7 @@
                             type="text"
                             id="ap"
                             class="form-control form-control"
+                            readonly="true"
                           />
                         </div>
 
@@ -201,7 +192,11 @@
                           <label class="form-label" for="tipoid"
                             >Tipo de identificación</label
                           >
-                          <select class="form-control" id="tipoid">
+                          <select
+                            class="form-control"
+                            id="tipoid"
+                            readonly="true"
+                          >
                             <option value="01">Cédula Física</option>
                           </select>
                         </div>
@@ -214,7 +209,7 @@
                             type="text"
                             id="cedula"
                             class="form-control form-control"
-                            placeholder="Digita el número de identificación"
+                            readonly="true"
                           />
                         </div>
 
@@ -226,6 +221,7 @@
                             type="tel"
                             id="telefono"
                             class="form-control form-control"
+                            readonly="true"
                           />
                         </div>
 
@@ -235,7 +231,12 @@
                             class="form-label"
                             >Correo Electrónico</label
                           >
-                          <input type="email" id="email" class="form-control" />
+                          <input
+                            type="email"
+                            id="email"
+                            class="form-control"
+                            readonly="true"
+                          />
                         </div>
 
                         <div class="mb-5">
@@ -246,7 +247,7 @@
                             type="text"
                             id="actividadEconomica"
                             class="form-control"
-                            placeholder="Escribí aquí en que trabajás"
+                            readonly="true"
                           />
                         </div>
 
@@ -264,26 +265,9 @@
                               id="ingresobruto"
                               class="form-control"
                               placeholder="Digitá el ingreso mensual percibido"
+                              readonly="true"
                             />
                           </div>
-                        </div>
-                        <!-- Divider -->
-                        <hr class="navbar-divider my-5 opacity-20" />
-                        <div class="text-end">
-                          <a
-                            href="dashboard.html"
-                            type="button"
-                            class="btn btn-sm btn-neutral me-2"
-                          >
-                            Cancelar
-                          </a>
-                          <button
-                            type="button"
-                            class="btn btn-sm btn-primary"
-                            onClick="save()"
-                          >
-                            Guardar
-                          </button>
                         </div>
                       </form>
                     </div>
@@ -309,6 +293,11 @@
                     <div id="paquete"></div>
                   </div>
                 </div>
+              </div>
+              <div class="mt-4">
+                <a href="dashboard.html" class="btn btn-secondary w-full">
+                  Atrás
+                </a>
               </div>
             </div>
           </div>

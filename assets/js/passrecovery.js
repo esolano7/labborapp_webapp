@@ -98,9 +98,10 @@ async function validarCodigo() {
 
   try {
     let telefonoUser = phoneInputObj.getNumber()
-    let { token, userid } = await signIn(telefonoUser, otp)
+    let { token, userid, user } = await signIn(telefonoUser, otp)
     localStorage.setItem('at', token)
-    localStorage.setItem('u', userid)
+    localStorage.setItem('uid', userid)
+    localStorage.setItem('user', JSON.stringify(user))
     Swal.close()
     $('#formCollapse2').collapse('hide')
     $('#formCollapse3').collapse('show')
@@ -153,13 +154,14 @@ async function login() {
     let tokenLastStep = localStorage.getItem('at')
     let useridLastStep = localStorage.getItem('u')
     let password = $('#password1').val()
-    let { token, userid } = await setMyPass(
+    let { token, userid, user } = await setMyPass(
       tokenLastStep,
       useridLastStep,
       password
     )
     localStorage.setItem('at', token)
-    localStorage.setItem('u', userid)
+    localStorage.setItem('uid', userid)
+    localStorage.setItem('user', JSON.stringify(user))
     window.location = 'dashboard.html'
   } catch (error) {
     swalErrors('¡Alto!', 'Parece que tus datos no son los correctos')

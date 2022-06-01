@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Labbor.app</title>
+    <link href="./assets/css/webpixels.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/img//favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/img//favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/img//site.webmanifest" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/labbor.css" />
+  </head>
+  <body>
+    <div
+      class="group-forms group-auth-forms component-form-login-2 mt-20 mt-md-10"
+      id="component-shot"
+    >
+      <div class="mb-5">
+        <img src="./labborAssets/Labbor.svg" class="mx-auto d-block" />
+      </div>
+
+      <form>
+        <div class="collapse show" id="formCollapse3">
+          <div class="mb-5">
+            <p class="text-center mb-10">Ok, creemos una contraseña nueva</p>
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label" for="password">Contraseña actual</label>
+            <input
+              type="password"
+              class="form-control form-control"
+              id="password"
+              autocomplete="current-password"
+              placeholder="Contraseña actual"
+            />
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label" for="password">Nueva contraseña</label>
+            <input
+              type="password"
+              class="form-control form-control"
+              id="password1"
+              autocomplete="current-password"
+              placeholder="Nueva contraseña"
+            />
+          </div>
+          <div class="mb-5">
+            <label class="form-label" for="password"
+              >Confirmación de contraseña</label
+            >
+            <input
+              type="password"
+              class="form-control form-control"
+              id="password2"
+              autocomplete="current-password"
+              placeholder="Confirma tu contraseña"
+            />
+          </div>
+          <div>
+            <button
+              type="button"
+              class="btn btn-primary w-full mb-5"
+              onClick="validarActual()"
+            >
+              Cambiar contraseña
+            </button>
+          </div>
+          <div>
+            <a
+              type="button"
+              href="dashboard.html"
+              class="btn btn-secondary w-full"
+            >
+              Atrás
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./assets/js/validaciones.js?v=2"></script>
+    <script src="./assets/js/userSession.js?v=2"></script>
+    <script src="./assets/js/passchange.js?v=2"></script>
+  </body>
+</html>

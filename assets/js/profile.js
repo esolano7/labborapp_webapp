@@ -54,25 +54,11 @@ async function myPeople() {
 
 function archivos(fotosCedula) {
   for (archivo of fotosCedula) {
-    console.log(archivo)
     let content = `<div class="list-group list-group-flush">
     <div class="list-group-item d-flex align-items-center">
-      <div class="me-4">
-        <div
-          class="icon icon-lg icon-shape text-xl bg-soft-warning text-warning"
-        >
-          <i class="bi bi-image"></i>
-        </div>
-      </div>
-      <div class="flex-fill">
-        <span class="d-block h6 text-sm font-semibold mb-1"
-          >Cédula</span
-        >
-        <span class="d-block text-xs text-muted">
-          Actualizada el
-          <time datetime="2021-01-04">Apr 4, 2021</time>
-        </span>
-      </div>
+    <div class="text-center">
+      <img src="${archivo.uploadURL}" class="rounded">
+    </div>
     </div>
   </div>`
     $('#archivos').append(content)
@@ -232,4 +218,5 @@ async function getPaquetes(idPaquete) {
   })
 }
 
+isLoginDashboard()
 myPeople()

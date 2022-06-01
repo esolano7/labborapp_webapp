@@ -1,10 +1,3 @@
-var phoneInput = document.querySelector('#phone')
-var phoneInputObj = window.intlTelInput(phoneInput, {
-  onlyCountries: ['cr'],
-  autoPlaceholder: 'polite',
-  utilsScript: '../assets/js/intlTelUtils.js',
-})
-
 var telefonoInput = document.querySelector('#telefono')
 var telefonoInputObj = window.intlTelInput(telefonoInput, {
   onlyCountries: ['cr'],
@@ -38,41 +31,6 @@ async function next(nextTab, who) {
   let currentTab = nextTab - 1
   $(`#formCollapse${currentTab}`).collapse('hide')
   $(`#formCollapse${nextTab}`).collapse('show')
-  if (who && who === 'personal') {
-    $('#nom').val($('#usernom').val())
-    $('#ap').val($('#userap').val())
-    telefonoInputObj.setNumber(phoneInputObj.getNumber())
-    $('#who').val(who)
-    $('#nom').attr('placeholder', 'Tu nombre')
-    $('#ap').attr('placeholder', 'Tus apellidos')
-    $('#cedula').attr('placeholder', 'Tu número de identificación')
-    $('#email').attr('placeholder', 'Tu correo electrónico (opcional)')
-    $('#telefono').attr('placeholder', 'Tu teléfono')
-    $('#actividadEconomica').attr('placeholder', 'Escribí aquí en que trabajás')
-    $('#ingresobruto').attr('placeholder', '¿Cuánto ganás por mes?')
-  }
-  if (who && who === 'colaborador') {
-    $('#nom').val('')
-    $('#ap').val('')
-    telefonoInputObj.setNumber('')
-    $('#who').val(who)
-    $('#nom').attr('placeholder', 'Nombre del colaborador')
-    $('#ap').attr('placeholder', 'Apellidos del colaborador')
-    $('#cedula').attr('placeholder', 'Número de identificación del colaborador')
-    $('#email').attr(
-      'placeholder',
-      'Correo electrónico del colaborador (opcional)'
-    )
-    $('#telefono').attr('placeholder', 'Teléfono del colaborador')
-    $('#actividadEconomica').attr(
-      'placeholder',
-      'Escribí aquí en que trabaja tu colaborador'
-    )
-    $('#ingresobruto').attr(
-      'placeholder',
-      '¿Cuánto percibe tu colaborador al mes?'
-    )
-  }
 }
 
 function prev(currentTab) {
@@ -83,64 +41,6 @@ function prev(currentTab) {
 
 async function validacion(pagina, who) {
   if (pagina === 2 || pagina === 4 || pagina === 6) return 1
-  if (pagina === 3) {
-    if ($('#usernom').val().length === 0) {
-      swalErrors(
-        '¡Alto!',
-        'Tenés que digitar tu nombre (por el que te llama tu mamá cuando se enoja, por ejemplo)'
-      )
-      return 0
-    }
-    if ($('#userap').val().length === 0) {
-      swalErrors(
-        '¡Alto!',
-        'Tenés que digitar tus apellidos, hacé que tus papás se sientan orgullosos'
-      )
-      return 0
-    }
-    if (!phoneInputObj.isValidNumber()) {
-      swalErrors(
-        '¡Aquí hay algo raro!',
-        '¿Colocaste bien tu número de teléfono? Revisá que tenga 8 dígitos, por favor'
-      )
-      return 0
-    }
-    if (!validar('password', $('#password1').val())) {
-      swalErrors(
-        '¡Alto! Que aquí nos vamos a poner delicados',
-        'Revisá que la contraseña tenga 8 caracteres (incluidos número, mayúsculas y minúsculas)'
-      )
-      return 0
-    }
-    if ($('#password1').val() !== $('#password2').val()) {
-      swalErrors(
-        '¡Atención!',
-        'Tenés que colocar la contraseña exactamente igual en ambos espacios'
-      )
-      return 0
-    }
-
-    let timerInterval
-    Swal.fire({
-      title: '¡Estamos validando los datos!',
-      html: 'Por favor, esperá unos segundos',
-      timer: 22000,
-      allowOutsideClick: false,
-      timerProgressBar: true,
-      didOpen: () => {
-        Swal.showLoading()
-        const b = Swal.getHtmlContainer().querySelector('b')
-        timerInterval = setInterval(() => {}, 100)
-      },
-      willClose: () => {
-        clearInterval(timerInterval)
-      },
-    })
-
-    let telefono = phoneInputObj.getNumber()
-    let checkUserValidation = await checkUser(telefono)
-    return checkUserValidation
-  }
   if (pagina === 5) {
     if ($('#nom').val().length === 0) {
       swalErrors('¡Alto!', 'Por favor, digitá el nombre')
@@ -169,33 +69,13 @@ async function validacion(pagina, who) {
       return 0
     }
 
-    if (who && who === 'personal') {
-      if ($('#actividadEconomica').val().length == 0) {
-        swalErrors('¡Alto!', 'Te faltó contarnos a que te dedicás')
-        return 0
-      }
-      if ($('#ingresobruto').val().length == 0) {
-        swalErrors(
-          '¡Alto!',
-          'Te faltó escribir cuánto ganás por mes. Tranquilo, prometemos no contar'
-        )
-        return 0
-      }
-    } else if (who && who === 'colaborador') {
-      if ($('#actividadEconomica').val().length == 0) {
-        swalErrors(
-          '¡Alto!',
-          'Te faltó contarnos a que se dedica tu colaborador'
-        )
-        return 0
-      }
-      if ($('#ingresobruto').val().length == 0) {
-        swalErrors(
-          '¡Alto!',
-          'Te faltó escribir cuánto percibe tu colaborador al mes'
-        )
-        return 0
-      }
+    if ($('#actividadEconomica').val().length == 0) {
+      swalErrors('¡Alto!', 'Por favor digitá la actividad económica')
+      return 0
+    }
+    if ($('#ingresobruto').val().length == 0) {
+      swalErrors('¡Alto!', 'Por favor digitá el ingreso')
+      return 0
     }
 
     let timerInterval
@@ -498,35 +378,28 @@ async function finalizar() {
     ingresobruto: Number($('#ingresobruto').val()),
     paquete: Number($('#paquete').val()),
     fotosCedula: JSON.stringify(UppyWrapper.core.getFiles()),
-    nombreUser: $('#usernom').val() + ' ' + $('#userap').val(),
-    telefonoUser: phoneInputObj.getNumber(),
-    passwordUser: $('#password1').val(),
   }
-
   if ($('#email').val() !== '') {
     data = { email: $('#email').val(), ...data }
   }
 
   try {
-    await signUp(data)
-    let { token, userid, user } = await signIn(
-      data.telefonoUser,
-      data.passwordUser
-    )
-    localStorage.setItem('at', token)
-    localStorage.setItem('uid', userid)
-    localStorage.setItem('user', JSON.stringify(user))
+    let persona = await afiliar(data)
+    await ligarPersonaUsuario(persona)
     window.location = 'dashboard.html'
   } catch (error) {
     swalErrors('¡Alto!', error)
   }
 }
 
-async function signUp(data) {
+async function afiliar(data) {
   return new Promise((resolve, reject) => {
+    let token = getJwtToken()
+    let { id } = getUserData()
     $.ajax({
       method: 'POST',
-      url: `https://api.labbor.app/signup/`,
+      url: `http://localhost:3000/usuario/nuevousuario/${id}/`,
+      headers: { Authorization: `Bearer ${token}` },
       data,
       success: (response) => {
         resolve(response)
@@ -538,15 +411,14 @@ async function signUp(data) {
   })
 }
 
-async function signIn(telefonoUser, passwordUser) {
+async function ligarPersonaUsuario(persona) {
   return new Promise((resolve, reject) => {
+    let token = getJwtToken()
+    let { id } = getUserData()
     $.ajax({
-      method: 'POST',
-      url: `https://api.labbor.app/usuarios/signin/`,
-      data: {
-        telefono: telefonoUser,
-        password: passwordUser,
-      },
+      method: 'PUT',
+      url: `http://localhost:3000/userspeople/setmypeople/${id}/${id}/${persona}/`,
+      headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
         resolve(response)
       },
@@ -556,3 +428,5 @@ async function signIn(telefonoUser, passwordUser) {
     })
   })
 }
+
+isLoginDashboard()

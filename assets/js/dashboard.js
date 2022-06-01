@@ -16,6 +16,9 @@ async function myPeople() {
       } else if (person.estado === 'activo') {
         estado.label = 'Activo'
         estado.color = 'success'
+      } else if (person.estado === 'inactivo') {
+        estado.label = 'Inctivo'
+        estado.color = 'danger'
       }
 
       person.ingresoFormat = formatter.format(person.ingresobruto)
