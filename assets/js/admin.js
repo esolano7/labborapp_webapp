@@ -8,6 +8,7 @@ let estadoSeleccionado = ''
 let tituloSeleccionado = ''
 
 async function showList(estado, titulo) {
+  $('#tablaPaquetes').collapse('hide')
   $('#tablaUsuarios').collapse('hide')
   $('#tablaPersonas').collapse('show')
   estadoSeleccionado = estado
@@ -227,19 +228,26 @@ function archivos(fotosCedula) {
 }
 
 let paquetesDisponibles = {}
-function populatePaquetes() {
-  $.ajax({
-    method: 'GET',
-    url: 'https://api.labbor.app/paquetes/',
-    success: (response) => {
-      response.forEach((paquete) => {
-        $('#paquetes').append(
-          `<option value="${paquete.id}">${paquete.nombre} - ${formatter.format(
-            paquete.precio
-          )}</option>`
-        )
-      })
-    },
+async function populatePaquetes() {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'GET',
+      url: 'https://api.labbor.app/paquetes/',
+      success: (response) => {
+        paquetesDisponibles = response
+        response.forEach((paquete) => {
+          $('#paquetes').append(
+            `<option value="${paquete.id}">${
+              paquete.nombre
+            } - ${formatter.format(paquete.precio)}</option>`
+          )
+        })
+        resolve(1)
+      },
+      error: (err) => {
+        reject(err)
+      },
+    })
   })
 }
 

@@ -18,10 +18,17 @@ $(document).ready(function () {
       {
         target: 4,
         render: function (u) {
-          return `<span class="badge mx-1 bg-primary text-white" style="cursor: pointer;" onClick=detallesUsuario(${u})><i class="bi bi-pencil" style="font-size: 13px;"></i></span>
+          if (localStorage.getItem('uid') == u) {
+            return `<span class="badge mx-1 bg-primary text-white" style="cursor: pointer;" onClick=detallesUsuario(${u})><i class="bi bi-pencil" style="font-size: 13px;"></i></span>
+
+          <span class="badge mx-1 bg-secondary text-white" style="cursor: pointer;" ><i class="bi bi-trash" style="font-size: 13px;"></i></span>
+          `
+          } else {
+            return `<span class="badge mx-1 bg-primary text-white" style="cursor: pointer;" onClick=detallesUsuario(${u})><i class="bi bi-pencil" style="font-size: 13px;"></i></span>
 
           <span class="badge mx-1 bg-danger text-white" style="cursor: pointer;" onClick=borrarUser(${u})><i class="bi bi-trash" style="font-size: 13px;"></i></span>
           `
+          }
         },
       },
     ],
@@ -30,6 +37,7 @@ $(document).ready(function () {
 
 async function showUsuarios() {
   $('#tablaPersonas').collapse('hide')
+  $('#tablaPaquetes').collapse('hide')
   $('#tablaUsuarios').collapse('show')
   $('#usuarios').DataTable().clear().draw()
 

@@ -64,7 +64,10 @@ async function init() {
     let paquete = await getPaquetes(people[0].paquete)
     $('#paquete').html(paquete)
   }
-  window.print()
+
+  setTimeout(function () {
+    window.print()
+  }, 2000)
 }
 
 function archivos(fotosCedula) {

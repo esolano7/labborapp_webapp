@@ -142,6 +142,11 @@
             <!-- User (md) -->
             <ul class="navbar-nav mb-5">
               <li class="nav-item">
+                <a class="nav-link" href="#" onClick="showPaquetes()">
+                  <i class="bi bi-box-seam"></i> Administrar paquetes
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#" onClick="showUsuarios()">
                   <i class="bi bi-gear"></i> Usuarios administrativos
                 </a>
@@ -259,6 +264,55 @@
                   <div class="col-lg-12 text-end mt-3">
                     <a href="#" class="btn btn-sm btn-info" onClick="newUser()">
                       Crear usuario
+                    </a>
+                  </div>
+                </div>
+
+                <div class="collapse" id="tablaPaquetes">
+                  <div class="col-lg-12 text-center">
+                    <!-- Heading -->
+                    <h1
+                      class="ls-tight font-bolder display-7 text-primary mb-5"
+                    >
+                      Paquetes
+                    </h1>
+                    <!-- Buttons -->
+                  </div>
+
+                  <div class="col-lg-12 px-2">
+                    <table
+                      id="tablapaquetes"
+                      class="display"
+                      style="width: 100%; background-color: #ffffff"
+                    >
+                      <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>Nombre</th>
+                          <th>Precio</th>
+                          <th>Descripción</th>
+                          <th>Acciones</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th>id</th>
+                          <th>Nombre</th>
+                          <th>Precio</th>
+                          <th>Descripción</th>
+                          <th>Acciones</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+
+                  <div class="col-lg-12 text-end mt-3">
+                    <a
+                      href="#"
+                      class="btn btn-sm btn-info"
+                      onClick="newPaquete()"
+                    >
+                      Crear paquete
                     </a>
                   </div>
                 </div>
@@ -624,6 +678,117 @@
       </div>
     </div>
 
+    <!-- Modal Paquetes -->
+    <div
+      class="modal fade"
+      id="paquetesModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="paqueteTit">Paquete</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="col-xl-12 mx-auto">
+              <div
+                class="tab-pane fade show active"
+                id="home-tab-pane"
+                role="tabpanel"
+                aria-labelledby="home-tab"
+                tabindex="0"
+              >
+                <form class="mb-6">
+                  <input type="hidden" id="paqueteid" />
+                  <div class="mb-5">
+                    <label class="form-label" for="paquetenombre">Nombre</label>
+                    <input
+                      type="text"
+                      id="paquetenombre"
+                      class="form-control form-control"
+                    />
+                  </div>
+                  <div class="mb-5">
+                    <label for="paquetedescripcion" class="form-label"
+                      >Descripción</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="paquetedescripcion"
+                      rows="3"
+                    ></textarea>
+                  </div>
+
+                  <div class="mb-5">
+                    <label for="paqueteincluye" class="form-label"
+                      >¿Qué incluye? Separe los elementos con una ","</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="paqueteincluye"
+                      rows="3"
+                      placeholder="Incluye A;Incluye B;Incluye C;"
+                    ></textarea>
+                  </div>
+                  <div class="mb-5">
+                    <label for="paquetedisclaimer" class="form-label"
+                      >Restricciones</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="paquetedisclaimer"
+                      rows="3"
+                      placeholder="Disclaimer"
+                    ></textarea>
+                  </div>
+                  <div class="mb-5">
+                    <label for="ingresobruto" class="form-label">Precio</label>
+
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">¢</span>
+                      <input
+                        type="text"
+                        id="paqueteprecio"
+                        class="form-control"
+                        placeholder="Digitá el precio"
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onClick="actualizarPaquete()"
+              id="paqueteButton"
+            >
+              Guardar cambios
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
     <script src="./assets/js/intlTelInput.js?v=2"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -646,5 +811,6 @@
     <script src="./assets/js/userSession.js?v=2"></script>
     <script src="./assets/js/admin.js?v=2"></script>
     <script src="./assets/js/adminUsuarios.js?v=2"></script>
+    <script src="./assets/js/adminPaquetes.js?v=2"></script>
   </body>
 </html>
