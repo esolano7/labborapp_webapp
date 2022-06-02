@@ -398,7 +398,7 @@ async function afiliar(data) {
     let { id } = getUserData()
     $.ajax({
       method: 'POST',
-      url: `http://localhost:3000/usuario/nuevousuario/${id}/`,
+      url: `https://api.labbor.app/usuario/nuevousuario/${id}/`,
       headers: { Authorization: `Bearer ${token}` },
       data,
       success: (response) => {
@@ -417,7 +417,7 @@ async function ligarPersonaUsuario(persona) {
     let { id } = getUserData()
     $.ajax({
       method: 'PUT',
-      url: `http://localhost:3000/userspeople/setmypeople/${id}/${id}/${persona}/`,
+      url: `https://api.labbor.app/userspeople/setmypeople/${id}/${id}/${persona}/`,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
         resolve(response)
