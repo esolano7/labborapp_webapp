@@ -152,7 +152,7 @@ async function login() {
 
   try {
     let tokenLastStep = localStorage.getItem('at')
-    let useridLastStep = localStorage.getItem('u')
+    let useridLastStep = localStorage.getItem('uid')
     let password = $('#password1').val()
     let { token, userid, user } = await setMyPass(
       tokenLastStep,
