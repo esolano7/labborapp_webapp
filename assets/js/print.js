@@ -72,10 +72,14 @@ async function init() {
 
 function archivos(fotosCedula) {
   for (archivo of fotosCedula) {
+    let foto = archivo.uploadURL
     let content = `<div class="list-group list-group-flush">
     <div class="list-group-item d-flex align-items-center">
     <div class="text-center">
-      <img src="${archivo.uploadURL}" class="rounded" style="width: 300px">
+      <img src="${foto.replace(
+        'labborapptemp',
+        'labborappfiles'
+      )}" class="rounded" style="width: 300px">
     </div>
     </div>
   </div>`

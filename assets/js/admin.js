@@ -200,6 +200,7 @@ async function detalles(id) {
   $('#cedula').val(datos.cedula)
   $('#cedulaOriginal').val(datos.cedula)
   $('#tipoidOriginal').val(datos.tipoid)
+  $('#email').val(datos.email)
   telefonoInputObj.setNumber(datos.telefono)
   $('#actividadEconomica').val(datos.actividadeconomica)
   $('#ingresobruto').val(datos.ingresobruto)
@@ -212,13 +213,20 @@ async function detalles(id) {
 
 function archivos(fotosCedula) {
   for (archivo of fotosCedula) {
+    let foto = archivo.uploadURL
     let content = `<div class="list-group list-group-flush">
     <div class="list-group-item align-items-center">
     <div class="text-center">
-      <img src="${archivo.uploadURL}" class="rounded">
+      <img src="${foto.replace(
+        'labborapptemp',
+        'labborappfiles'
+      )}" class="rounded">
     </div>
     <div class="text-center">
-      <a href="${archivo.uploadURL}" target="_blank" class="btn btn-primary mt-5">Descargar</a>
+      <a href="${foto.replace(
+        'labborapptemp',
+        'labborappfiles'
+      )}" target="_blank" class="btn btn-primary mt-5">Descargar</a>
     </div>
     </div>
     
