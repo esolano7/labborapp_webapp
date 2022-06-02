@@ -119,6 +119,7 @@ async function actualizarPaquete() {
     incluyeApp: JSON.stringify({ incluye: incluyeitems }),
     disclaimerApp: $('#paquetedisclaimer').val(),
     precio: $('#paqueteprecio').val(),
+    estado: 1,
   }
   let id = $('#paqueteid').val()
   if (id) {
@@ -222,7 +223,7 @@ async function borrarPaquete(id) {
         })
         showPaquetes()
       } catch (error) {
-        swalErrors('¡Alto!', error)
+        swalErrors('¡Alto!', error.responseText)
       }
     }
   })
