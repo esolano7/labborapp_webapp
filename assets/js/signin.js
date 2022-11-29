@@ -96,7 +96,7 @@ async function signIn(telefonoUser, passwordUser) {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'POST',
-      url: `https://api.labbor.app/usuarios/signin/`,
+      url: `https://labbor-app.onrender.com/usuarios/signin/`,
       data: { telefono: telefonoUser, password: passwordUser },
       success: (response) => {
         resolve(response)
@@ -113,7 +113,7 @@ async function onesignal_id(token, id, onesignal_id) {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'PATCH',
-      url: `https://api.labbor.app/usuario/${id}/`,
+      url: `https://labbor-app.onrender.com/usuario/${id}/`,
       data: { onesignal_id },
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {

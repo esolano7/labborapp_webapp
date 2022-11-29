@@ -10,7 +10,7 @@ async function getPeople() {
     let token = getJwtToken()
     $.ajax({
       method: 'GET',
-      url: `https://api.labbor.app/people/${id}`,
+      url: `https://labbor-app.onrender.com/people/${id}`,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
         resolve(response)
@@ -91,7 +91,7 @@ async function getPaquetes(idPaquete) {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'GET',
-      url: `https://api.labbor.app/paquetes/?id=${idPaquete}`,
+      url: `https://labbor-app.onrender.com/paquetes/?id=${idPaquete}`,
       success: (response) => {
         let paquete = response[0]
         let { incluye } = JSON.parse(paquete.incluyeApp)

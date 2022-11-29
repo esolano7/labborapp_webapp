@@ -34,7 +34,7 @@ async function getMyPeople() {
     let { id } = getUserData()
     $.ajax({
       method: 'GET',
-      url: `https://api.labbor.app/userspeople/getMyPeople/${id}/`,
+      url: `https://labbor-app.onrender.com/userspeople/getMyPeople/${id}/`,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
         resolve(response)

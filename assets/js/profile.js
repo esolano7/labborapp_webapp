@@ -144,7 +144,7 @@ async function getMyPeople(idPersona) {
     let { id } = getUserData()
     $.ajax({
       method: 'GET',
-      url: `https://api.labbor.app/userspeople/getMyPeople/${id}/?idPersona=${idPersona}`,
+      url: `https://labbor-app.onrender.com/userspeople/getMyPeople/${id}/?idPersona=${idPersona}`,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
         resolve(response)
@@ -161,7 +161,7 @@ async function getPaquetes(idPaquete) {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'GET',
-      url: `https://api.labbor.app/paquetes/?id=${idPaquete}`,
+      url: `https://labbor-app.onrender.com/paquetes/?id=${idPaquete}`,
       success: (response) => {
         let paquete = response[0]
         let incluyeFormated = ''

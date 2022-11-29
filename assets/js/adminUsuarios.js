@@ -173,7 +173,7 @@ async function checkUser(data) {
     let token = getJwtToken()
     $.ajax({
       method: 'GET',
-      url: `https://api.labbor.app/checkusuarios/${data.telefono}/`,
+      url: `https://labbor-app.onrender.com/checkusuarios/${data.telefono}/`,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
         resolve(response)
@@ -190,7 +190,7 @@ async function createUser(data) {
     let token = getJwtToken()
     $.ajax({
       method: 'POST',
-      url: `https://api.labbor.app/usuarios/`,
+      url: `https://labbor-app.onrender.com/usuarios/`,
       data,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
@@ -207,7 +207,7 @@ async function updateUser(id, data) {
     let token = getJwtToken()
     $.ajax({
       method: 'PATCH',
-      url: `https://api.labbor.app/usuarios/${id}/`,
+      url: `https://labbor-app.onrender.com/usuarios/${id}/`,
       data,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
@@ -224,7 +224,7 @@ async function getUsuario(id) {
     let token = getJwtToken()
     $.ajax({
       method: 'GET',
-      url: `https://api.labbor.app/usuarios/${id}/`,
+      url: `https://labbor-app.onrender.com/usuarios/${id}/`,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
         resolve(response)
@@ -241,7 +241,7 @@ async function getUsuarios() {
     let token = getJwtToken()
     $.ajax({
       method: 'GET',
-      url: `https://api.labbor.app/usuarios/?estado=1&rol=admin`,
+      url: `https://labbor-app.onrender.com/usuarios/?estado=1&rol=admin`,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
         resolve(response)
@@ -297,7 +297,7 @@ async function deleteUser(id) {
     let token = getJwtToken()
     $.ajax({
       method: 'DELETE',
-      url: `https://api.labbor.app/usuarios/${id}/`,
+      url: `https://labbor-app.onrender.com/usuarios/${id}/`,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
         resolve(response)

@@ -238,7 +238,7 @@ async function checkUser(telefono) {
     $.ajax({
       async: true,
       method: 'GET',
-      url: `https://api.labbor.app/checkusuarios/${telefono}/`,
+      url: `https://labbor-app.onrender.com/checkusuarios/${telefono}/`,
       success: (response) => {
         console.log(response)
         if (response) {
@@ -256,7 +256,7 @@ async function checkPeople(tipoid, cedula) {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'GET',
-      url: `https://api.labbor.app/checkpeople/${tipoid}/${cedula}/`,
+      url: `https://labbor-app.onrender.com/checkpeople/${tipoid}/${cedula}/`,
       success: (response) => {
         if (response) {
           swalErrors(
@@ -336,7 +336,7 @@ let paquetesDisponibles = {}
 function populatePaquetes() {
   $.ajax({
     method: 'GET',
-    url: 'https://api.labbor.app/paquetes/',
+    url: 'https://labbor-app.onrender.com/paquetes/',
     success: (response) => {
       paquetesDisponibles = response
       response.forEach((paquete) => {
@@ -526,7 +526,7 @@ async function signUp(data) {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'POST',
-      url: `https://api.labbor.app/signup/`,
+      url: `https://labbor-app.onrender.com/signup/`,
       data,
       success: (response) => {
         resolve(response)
@@ -542,7 +542,7 @@ async function signIn(telefonoUser, passwordUser) {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'POST',
-      url: `https://api.labbor.app/usuarios/signin/`,
+      url: `https://labbor-app.onrender.com/usuarios/signin/`,
       data: {
         telefono: telefonoUser,
         password: passwordUser,

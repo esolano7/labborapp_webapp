@@ -51,7 +51,7 @@ async function onesignal_id(token, id, onesignal_id) {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'PATCH',
-      url: `https://api.labbor.app/usuario/${id}/`,
+      url: `https://labbor-app.onrender.com/usuario/${id}/`,
       data: { onesignal_id },
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {

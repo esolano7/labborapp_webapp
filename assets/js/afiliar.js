@@ -118,7 +118,7 @@ async function checkUser(telefono) {
     $.ajax({
       async: true,
       method: 'GET',
-      url: `https://api.labbor.app/checkusuarios/${telefono}/`,
+      url: `https://labbor-app.onrender.com/checkusuarios/${telefono}/`,
       success: (response) => {
         console.log(response)
         if (response) {
@@ -136,7 +136,7 @@ async function checkPeople(tipoid, cedula) {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'GET',
-      url: `https://api.labbor.app/checkpeople/${tipoid}/${cedula}/`,
+      url: `https://labbor-app.onrender.com/checkpeople/${tipoid}/${cedula}/`,
       success: (response) => {
         if (response) {
           swalErrors(
@@ -216,7 +216,7 @@ let paquetesDisponibles = {}
 function populatePaquetes() {
   $.ajax({
     method: 'GET',
-    url: 'https://api.labbor.app/paquetes/',
+    url: 'https://labbor-app.onrender.com/paquetes/',
     success: (response) => {
       paquetesDisponibles = response
       response.forEach((paquete) => {
@@ -398,7 +398,7 @@ async function afiliar(data) {
     let { id } = getUserData()
     $.ajax({
       method: 'POST',
-      url: `https://api.labbor.app/usuario/nuevousuario/${id}/`,
+      url: `https://labbor-app.onrender.com/usuario/nuevousuario/${id}/`,
       headers: { Authorization: `Bearer ${token}` },
       data,
       success: (response) => {
@@ -417,7 +417,7 @@ async function ligarPersonaUsuario(persona) {
     let { id } = getUserData()
     $.ajax({
       method: 'PUT',
-      url: `https://api.labbor.app/userspeople/setmypeople/${id}/${id}/${persona}/`,
+      url: `https://labbor-app.onrender.com/userspeople/setmypeople/${id}/${id}/${persona}/`,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
         resolve(response)

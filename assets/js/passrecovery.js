@@ -114,7 +114,7 @@ async function signIn(telefonoUser, passwordUser) {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'POST',
-      url: `https://api.labbor.app/usuarios/signin/`,
+      url: `https://labbor-app.onrender.com/usuarios/signin/`,
       data: {
         telefono: telefonoUser,
         password: passwordUser,
@@ -172,7 +172,7 @@ async function setMyPass(tokenLastStep, useridLastStep, password) {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'PATCH',
-      url: `https://api.labbor.app/usuario/password/${useridLastStep}/`,
+      url: `https://labbor-app.onrender.com/usuario/password/${useridLastStep}/`,
       headers: { Authorization: `Bearer ${tokenLastStep}` },
       data: { password },
       success: (response) => {
@@ -205,7 +205,7 @@ async function passRecovery(telefonoUser) {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'POST',
-      url: `https://api.labbor.app/usuario/resetmypassword/`,
+      url: `https://labbor-app.onrender.com/usuario/resetmypassword/`,
       data: { telefono: telefonoUser },
       success: (response) => {
         let { respuesta } = response

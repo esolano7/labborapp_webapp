@@ -44,7 +44,7 @@ async function getPeople(estado) {
     let token = getJwtToken()
     $.ajax({
       method: 'GET',
-      url: `https://api.labbor.app/people/`,
+      url: `https://labbor-app.onrender.com/people/`,
       data: {
         estado,
       },
@@ -65,7 +65,7 @@ async function getPerson(id) {
     let token = getJwtToken()
     $.ajax({
       method: 'GET',
-      url: `https://api.labbor.app/people/${id}/`,
+      url: `https://labbor-app.onrender.com/people/${id}/`,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
         resolve(response)
@@ -240,7 +240,7 @@ async function populatePaquetes() {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'GET',
-      url: 'https://api.labbor.app/paquetes/',
+      url: 'https://labbor-app.onrender.com/paquetes/',
       success: (response) => {
         paquetesDisponibles = response
         response.forEach((paquete) => {
@@ -338,7 +338,7 @@ async function updatePeople(id, data) {
     let token = getJwtToken()
     $.ajax({
       method: 'PATCH',
-      url: `https://api.labbor.app/people/${id}/`,
+      url: `https://labbor-app.onrender.com/people/${id}/`,
       data,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
@@ -423,7 +423,7 @@ async function checkPeople(tipoid, cedula) {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'GET',
-      url: `https://api.labbor.app/checkpeople/${tipoid}/${cedula}/`,
+      url: `https://labbor-app.onrender.com/checkpeople/${tipoid}/${cedula}/`,
       success: (response) => {
         if (response) {
           swalErrors(

@@ -11,7 +11,7 @@ class uppyWrapper {
   }
 
   init({ target }) {
-    const serverUrl = `https://api.labbor.app/companion/`
+    const serverUrl = `https://labbor-app.onrender.com/companion/`
     const uppyConfig = { inline: true, target }
     const idiomaConCambios = ES
 

@@ -160,7 +160,7 @@ async function createPaquete(data) {
     let token = getJwtToken()
     $.ajax({
       method: 'POST',
-      url: `https://api.labbor.app/paquetes/`,
+      url: `https://labbor-app.onrender.com/paquetes/`,
       data,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
@@ -177,7 +177,7 @@ async function updatePaquete(id, data) {
     let token = getJwtToken()
     $.ajax({
       method: 'PATCH',
-      url: `https://api.labbor.app/paquetes/${id}/`,
+      url: `https://labbor-app.onrender.com/paquetes/${id}/`,
       data,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
@@ -234,7 +234,7 @@ async function deletePaquete(id) {
     let token = getJwtToken()
     $.ajax({
       method: 'DELETE',
-      url: `https://api.labbor.app/paquetes/${id}/`,
+      url: `https://labbor-app.onrender.com/paquetes/${id}/`,
       headers: { Authorization: `Bearer ${token}` },
       success: (response) => {
         resolve(response)
